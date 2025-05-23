@@ -12,15 +12,12 @@ interface Tool {
   delay: string;
 }
 
-// Updated toolsData with your specified tools
 const toolsData: Tool[] = [
   { id: 1, name: "WordPress", logoSrc: "/images/tools/wordpress-logo.svg", logoAlt: "WordPress Logo", description: "Versatile Content Management System.", delay: "0s" },
   { id: 2, name: "Notion", logoSrc: "/images/tools/notion-logo.svg", logoAlt: "Notion Logo", description: "All-in-one workspace for notes & projects.", delay: "0.05s" },
   { id: 3, name: "Google Workspace", logoSrc: "/images/tools/gworkspace-logo.svg", logoAlt: "Google Workspace Logo", description: "Suite of collaboration & productivity tools.", delay: "0.1s" },
   { id: 4, name: "CapCut", logoSrc: "/images/tools/capcut-logo.svg", logoAlt: "CapCut Logo", description: "User-friendly video editing for social media.", delay: "0.15s" },
   { id: 5, name: "Canva", logoSrc: "/images/tools/canva-logo.svg", logoAlt: "Canva Logo", description: "Intuitive graphic design for all needs.", delay: "0.2s" },
-  // You can add a 6th one if you like, or we can adjust the grid
-  // { id: 6, name: "Your Next Tool", logoSrc: "/images/tools/yourtool-logo.svg", logoAlt: "Your Tool", description: "Brief description.", delay: "0.25s" },
 ];
 
 
@@ -59,7 +56,6 @@ const ToolsSection = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4 sm:mb-5">My Go-To Tools</h2>
           <p className="text-base sm:text-lg text-slate-600 max-w-xl md:max-w-2xl mx-auto">Utilizing these key platforms to deliver efficient and high-quality digital solutions for your business.</p>
         </div>
-        {/* Adjusted grid for 5 items, centers better on some screens. Can be lg:grid-cols-5 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-stretch justify-center">
           {toolsData.map((tool) => (
             <div 

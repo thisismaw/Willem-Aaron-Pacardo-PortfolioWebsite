@@ -1,93 +1,128 @@
 "use client"; 
 
 import React, { useState, useEffect } from 'react'; 
-import Link from 'next/link';
+import Link from 'next/link'; 
+import { usePathname } from 'next/navigation'; 
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('home');
+  const [activeLink, setActiveLink] = useState(''); 
+  const pathname = usePathname(); 
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const currentPathBase = pathname.split('/')[1] || 'home';
+      if (pathname === '/') {
+        // Scroll listener handles this for homepage
+      } else {
+        setActiveLink(currentPathBase);
+      }
+    }
+  }, [pathname]);
+
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleLinkClick = (sectionId: string) => {
+  const handleAnchorLinkClick = (sectionId: string) => {
     setIsMobileMenuOpen(false); 
-    setActiveLink(sectionId);
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const yOffset = -68; 
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({top: y, behavior: 'smooth'});
+    setActiveLink(sectionId); 
+    if (pathname !== '/') {
+      window.location.href = `/#${sectionId}`;
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const yOffset = -68; 
+        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
     }
   };
-
+  
   useEffect(() => {
-    const pageSectionsQuery = 'header[id], section[id]'; 
-    let pageSections: HTMLElement[] = Array.from(document.querySelectorAll(pageSectionsQuery)) as HTMLElement[];
+    if (pathname === '/') { 
+      const pageSectionsQuery = 'header[id], section[id]'; 
+      let pageSections: HTMLElement[] = Array.from(document.querySelectorAll(pageSectionsQuery)) as HTMLElement[];
 
-    const handleScroll = () => {
-      pageSections = Array.from(document.querySelectorAll(pageSectionsQuery)) as HTMLElement[];
-      let current = 'home'; 
-      const scrollPosition = window.pageYOffset;
-      const navHeight = 70; 
+      const handleScroll = () => {
+        pageSections = Array.from(document.querySelectorAll(pageSectionsQuery)) as HTMLElement[];
+        let currentSectionId = 'home'; 
+        const scrollPosition = window.pageYOffset;
+        const navHeight = 70; 
 
-      for (const section of pageSections) {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollPosition >= sectionTop - navHeight - (sectionHeight * 0.3) ) { 
-          current = section.getAttribute('id') || 'home';
+        for (const section of pageSections) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollPosition >= sectionTop - navHeight - (sectionHeight * 0.3) ) { 
+            currentSectionId = section.getAttribute('id') || 'home';
+          }
         }
-      }
-      
-      if (scrollPosition < 200 && pageSections.length > 0 && pageSections[0].id === 'home') {
-        current = 'home';
-      }
-      setActiveLink(current);
-    };
+        
+        if (scrollPosition < 200 && pageSections.length > 0 && pageSections[0].id === 'home') {
+          currentSectionId = 'home';
+        }
+        setActiveLink(currentSectionId);
+      };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); 
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll(); 
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  }, [pathname]);
 
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'tools', label: 'Tools' },
-    { id: 'about', label: 'About' },
-    { id: 'portfolio', label: 'Portfolio' },
-    { id: 'blog', label: 'Blog' },
+    { id: 'home', label: 'Home', href: '/#home', isPageLink: false },
+    { id: 'services', label: 'Services', href: '/services', isPageLink: true }, 
+    { id: 'tools', label: 'Tools', href: '/#tools', isPageLink: false },
+    { id: 'about', label: 'About', href: '/#about', isPageLink: false },
+    { id: 'portfolio', label: 'Portfolio', href: '/portfolio', isPageLink: true }, 
+    { id: 'blog', label: 'Blog', href: '/blog', isPageLink: true }, 
   ];
 
   return (
     <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center"> 
-        <a href="#home" onClick={(e) => { e.preventDefault(); handleLinkClick('home');}} className="text-2xl sm:text-3xl font-bold text-cyan-700 hover:text-cyan-800 transition-colors"> 
-          YourLogo
-        </a>
+        <Link 
+          href="/" 
+          onClick={() => handleAnchorLinkClick('home')} 
+          className="text-2xl sm:text-3xl font-bold text-cyan-700 hover:text-cyan-800 transition-colors"
+        > 
+          YourLogo/Name
+        </Link>
         
         <div className="hidden md:flex space-x-4 lg:space-x-6 items-center"> 
           {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleLinkClick(item.id);
-              }}
-              className={`nav-link text-slate-700 hover:text-cyan-700 font-medium px-2 py-1 ${activeLink === item.id ? 'active-link' : ''}`}
-            >
-              {item.label}
-            </a>
+            item.isPageLink ? (
+              <Link 
+                key={item.id} 
+                href={item.href} 
+                onClick={() => { setIsMobileMenuOpen(false); setActiveLink(item.id);}}
+                className={`nav-link text-slate-700 hover:text-cyan-700 font-medium px-2 py-1 ${activeLink === item.id ? 'active-link' : ''}`}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleAnchorLinkClick(item.id);
+                }}
+                className={`nav-link text-slate-700 hover:text-cyan-700 font-medium px-2 py-1 ${activeLink === item.id ? 'active-link' : ''}`}
+              >
+                {item.label}
+              </a>
+            )
           ))}
           <a
-            href="#contact"
+            href="/#contact" 
             onClick={(e) => {
               e.preventDefault();
-              handleLinkClick('contact');
+              handleAnchorLinkClick('contact');
             }}
             className="bg-cyan-700 hover:bg-cyan-800 text-white font-semibold py-2 px-4 lg:px-5 rounded-lg transition duration-300 ease-in-out text-sm sm:text-base"
           >
@@ -111,23 +146,34 @@ const Navbar = () => {
 
       <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white shadow-xl absolute top-full left-0 right-0 z-40 py-2`}>
         {navItems.map((item) => (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              handleLinkClick(item.id);
-            }}
-            className="block px-6 py-3 text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 transition-colors duration-200 text-center"
-          >
-            {item.label}
-          </a>
+           item.isPageLink ? (
+            <Link 
+              key={item.id} 
+              href={item.href} 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-6 py-3 text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 transition-colors duration-200 text-center"
+            >
+              {item.label}
+            </Link>
+           ) : (
+            <a
+              key={item.id}
+              href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                handleAnchorLinkClick(item.id);
+              }}
+              className="block px-6 py-3 text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 transition-colors duration-200 text-center"
+            >
+              {item.label}
+            </a>
+           )
         ))}
         <a
-          href="#contact"
+          href="/#contact"
           onClick={(e) => {
             e.preventDefault();
-            handleLinkClick('contact');
+            handleAnchorLinkClick('contact');
           }}
           className="block px-6 py-3 text-cyan-700 bg-cyan-50 hover:bg-cyan-100 font-semibold transition-colors duration-200 text-center mt-2 mx-4 rounded-md"
         >

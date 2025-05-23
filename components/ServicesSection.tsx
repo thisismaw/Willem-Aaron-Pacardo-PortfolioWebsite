@@ -2,21 +2,19 @@
 
 import React, { useEffect, useRef, useState } from 'react'; 
 
-// Define an interface for the service data for better type safety
 interface Service {
   id: number;
-  icon: React.JSX.Element; // Corrected type for JSX elements
+  icon: React.JSX.Element; 
   title: string;
   description: string;
   details: string[];
   rate: string; 
   buttonText: string; 
-  buttonLink?: string; // Optional: if the button should link somewhere other than #contact
+  buttonLink?: string; 
   highlightClass?: string; 
   delay: string; 
 }
 
-// Define new SVG icons for the categories
 const CreativeIcon = () => ( 
   <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
     <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.038-.502.082-.752.132M9.75 3.104A2.25 2.25 0 007.5 1.5h-3A2.25 2.25 0 002.25 3.75v16.5A2.25 2.25 0 004.5 22.5h15A2.25 2.25 0 0021.75 20.25V3.75A2.25 2.25 0 0019.5 1.5h-3A2.25 2.25 0 0014.25 3.104M9.75 3.104c.251.038.502.082.752.132M14.25 3.104v5.714a2.25 2.25 0 00.659 1.591l2.841 2.841M14.25 3.104c.251.038.502.082.752.132M14.25 3.104A2.25 2.25 0 0116.5 1.5h3A2.25 2.25 0 0121.75 3.75v16.5A2.25 2.25 0 0119.5 22.5h-15A2.25 2.25 0 012.25 20.25V3.75A2.25 2.25 0 014.5 1.5h3A2.25 2.25 0 019.75 3.104z" />
@@ -43,10 +41,10 @@ const servicesData: Service[] = [
     icon: <CreativeIcon />, 
     title: "Creative Powerhouse", 
     description: "High-impact video editing, visual design, and engaging social media content to captivate your audience.", 
-    details: ["Professional Video Editing", "Motion Graphics & Animation", "Social Media Content Creation (Visuals & Copy)", "Basic Graphic Design (Thumbnails, Banners)"], 
-    rate: "Packages from $450",
+    details: ["Professional Video Editing", "Social Media Content Creation (Visuals & Copy)", "Basic Graphic Design (Thumbnails, Banners)", "Social Media Management"], 
+    rate: "Packages from $300",
     buttonText: "View Creative Plans",
-    buttonLink: "#contact", // Or a link to a specific packages page e.g. "/packages/creative"
+    buttonLink: "#contact", 
     delay: "0s" 
   },
   { 
@@ -55,7 +53,7 @@ const servicesData: Service[] = [
     title: "Seamless Operations", 
     description: "Efficient social media management, website upkeep, and e-commerce support to streamline your digital presence.", 
     details: ["Social Media Scheduling & Analytics", "Community Management", "Website Maintenance & Updates", "E-commerce Store Management"], 
-    rate: "Hourly: $40 | Retainers Available",
+    rate: "Hourly: $12 | Retainers Available",
     buttonText: "Discover Admin Plans",
     buttonLink: "#contact",
     delay: "0.1s" 
@@ -135,4 +133,4 @@ const ServicesSection = () => {
   );
 };
 
-export default ServicesSection;
+export default ServicesSection; 

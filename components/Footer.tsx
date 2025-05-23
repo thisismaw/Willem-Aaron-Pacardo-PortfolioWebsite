@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-slate-700 pt-8 sm:pt-10 text-center">
-          <p className="text-xs sm:text-sm mb-2">&copy; {currentYear} Your Name/Your Brand. All Rights Reserved.</p>
+          <p className="text-xs sm:text-sm mb-2">&copy; {currentYear} Willem Pacardo. All Rights Reserved.</p>
           <p className="text-xs text-slate-400">
             <Link href="/privacy-policy" className="footer-link hover:text-cyan-400">Privacy Policy</Link> | 
             <Link href="/terms-of-service" className="footer-link hover:text-cyan-400">Terms of Service</Link>
