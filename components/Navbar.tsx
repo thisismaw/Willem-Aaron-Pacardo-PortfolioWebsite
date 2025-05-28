@@ -88,9 +88,9 @@ const Navbar = () => {
         <Link 
           href="/" 
           onClick={() => handleAnchorLinkClick('home')} 
-          className="text-2xl sm:text-3xl font-bold text-cyan-700 hover:text-cyan-800 transition-colors"
+          className="font-logo-rocksalt text-2xl sm:text-3xl font-bold text-cyan-700 hover:text-cyan-800 transition-colors"
         > 
-          YourLogo/Name
+            AssistByAaron 
         </Link>
         
         <div className="hidden md:flex space-x-4 lg:space-x-6 items-center"> 

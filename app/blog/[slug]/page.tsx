@@ -1,5 +1,5 @@
-import { getPostBySlug, getAllPosts, PostData } from '@/lib/blogApi';
-import markdownToHtml from '@/lib/markdownToHtml';
+import { getPostBySlug, getAllPosts, PostData } from '@/lib/blogApi'; // Ensure blogApi.ts is in your lib folder
+import markdownToHtml from '@/lib/markdownToHtml'; // Ensure markdownToHtml.ts is in your lib folder
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,6 +11,7 @@ type Props = {
   };
 };
 
+// Function to generate metadata for each blog post
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
@@ -25,8 +26,8 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || []
 
   return {
-    title: `${post.title || 'Blog Post'} | Willem Pacardo`,
-    description: post.excerpt || 'Read this blog post by Willem Pacardo.',
+    title: `${post.title || 'Blog Post'} | AssistbyAaron`, // Or your actual brand name
+    description: post.excerpt || 'Read this blog post from AssistbyAaron.',
     authors: post.author ? [{ name: post.author }] : [],
     openGraph: {
       title: post.title,
@@ -36,9 +37,13 @@ export async function generateMetadata(
       publishedTime: post.date,
       authors: post.author ? [post.author] : [],
     },
+    // You can add more specific metadata like Twitter cards here
   }
 }
 
+
+// Function to generate static paths for all blog posts at build time
+// This tells Next.js which blog post pages to pre-render
 export async function generateStaticParams() {
   const posts = getAllPosts(['slug']);
   return posts.map((post) => ({
@@ -47,7 +52,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const post = getPostBySlug(params.slug, [
+  const { slug } = params;
+  const post = getPostBySlug(slug, [
     'title',
     'date',
     'slug',
@@ -58,14 +64,14 @@ export default async function BlogPostPage({ params }: Props) {
   ]);
 
   if (!post || !post.content) {
-    return notFound(); 
+    return notFound(); // Returns a 404 page if the post isn't found or has no content
   }
 
   const contentHtml = await markdownToHtml(post.content);
 
   return (
     <div className="bg-white py-12 sm:py-16">
-      <article className="container mx-auto px-4 sm:px-6 max-w-3xl">
+      <article className="container mx-auto px-4 sm:px-6 max-w-3xl"> {/* max-w-3xl for typical blog post width */}
         <header className="mb-8 sm:mb-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 mb-3 leading-tight">
             {post.title}
@@ -93,34 +99,26 @@ export default async function BlogPostPage({ params }: Props) {
               src={post.coverImage}
               alt={post.title || 'Blog post cover image'}
               fill
-              sizes="(max-width: 768px) 100vw, 700px"
+              sizes="(max-width: 768px) 100vw, 700px" // Adjust sizes as needed
               className="object-cover"
-              priority 
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.onerror = null;
-                target.style.display = 'none'; 
-                target.parentElement?.classList.add('bg-slate-200'); 
-                console.error(`Failed to load cover image for post: ${post.slug}`);
-              }}
+              priority // Good to prioritize if it's the main image above the fold
             />
           </div>
         )}
         
+        {/* Apply Tailwind Typography plugin styles here */}
         <div 
           className="prose prose-slate lg:prose-lg xl:prose-xl max-w-none mx-auto
                      prose-headings:text-slate-800 prose-a:text-cyan-600 hover:prose-a:text-cyan-700
                      prose-strong:text-slate-700 prose-blockquote:border-cyan-500 prose-blockquote:text-slate-600
                      prose-code:text-cyan-700 prose-code:bg-slate-100 prose-code:p-1 prose-code:rounded-md
-                     prose-img:rounded-lg prose-img:shadow-md"
+                     prose-img:rounded-lg prose-img:shadow-md" // Styles for rendered Markdown
           dangerouslySetInnerHTML={{ __html: contentHtml }} 
         />
 
         <div className="mt-12 pt-8 border-t border-slate-200 text-center">
-          <Link href="/blog" legacyBehavior>
-            <a className="text-cyan-700 hover:text-cyan-800 font-semibold hover:underline">
+          <Link href="/blog" className="text-cyan-700 hover:text-cyan-800 font-semibold hover:underline">
               &larr; Back to All Blog Posts
-            </a>
           </Link>
         </div>
       </article>

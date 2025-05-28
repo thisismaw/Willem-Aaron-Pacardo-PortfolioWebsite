@@ -1,6 +1,8 @@
 "use client"; 
 
 import React, { useEffect, useRef, useState } from 'react'; 
+import ContactModal from '@/components/ContactModal'; 
+import Link from 'next/link';
 
 interface Service {
   id: number;
@@ -10,9 +12,13 @@ interface Service {
   details: string[];
   rate: string; 
   buttonText: string; 
-  buttonLink?: string; 
+  buttonLink?: string; // This is not used if all buttons open modal
   highlightClass?: string; 
-  delay: string; 
+  // delay: string; // Removed as individual card delay is calculated
+}
+
+interface ServicesSectionProps {
+  baseDelay?: string;
 }
 
 const CreativeIcon = () => ( 
@@ -41,11 +47,10 @@ const servicesData: Service[] = [
     icon: <CreativeIcon />, 
     title: "Creative Powerhouse", 
     description: "High-impact video editing, visual design, and engaging social media content to captivate your audience.", 
-    details: ["Professional Video Editing", "Social Media Content Creation (Visuals & Copy)", "Basic Graphic Design (Thumbnails, Banners)", "Social Media Management"], 
-    rate: "Packages from $300",
-    buttonText: "View Creative Plans",
-    buttonLink: "#contact", 
-    delay: "0s" 
+    details: ["Basic Video Editing", "Youtube Studio Management", "Social Media Content Creation (Visuals & Copy)", "Basic Graphic Design (Thumbnails, Banners)"], 
+    rate: "Packages from $250",
+    buttonText: "Discuss Creative Needs",
+    // delay: "0s" // Removed
   },
   { 
     id: 2, 
@@ -53,10 +58,9 @@ const servicesData: Service[] = [
     title: "Seamless Operations", 
     description: "Efficient social media management, website upkeep, and e-commerce support to streamline your digital presence.", 
     details: ["Social Media Scheduling & Analytics", "Community Management", "Website Maintenance & Updates", "E-commerce Store Management"], 
-    rate: "Hourly: $12 | Retainers Available",
-    buttonText: "Discover Admin Plans",
-    buttonLink: "#contact",
-    delay: "0.1s" 
+    rate: "Hourly: from $12 | Retainers Available", 
+    buttonText: "Optimize My Admin",
+    // delay: "0.1s" // Removed
   },
   { 
     id: 3, 
@@ -65,16 +69,27 @@ const servicesData: Service[] = [
     description: "Comprehensive support combining creative flair with administrative efficiency for ultimate brand growth.", 
     details: ["Full-Service Social Media (Strategy to Management)", "Website Design/Dev + Ongoing Maintenance", "Video Production + Distribution", "Customized Project Bundles"], 
     rate: "Custom Quotes Available",
-    buttonText: "Get a Custom Quote",
-    buttonLink: "#contact",
+    buttonText: "Get My Custom Plan",
     highlightClass: "border-cyan-500 ring-2 ring-cyan-500/50", 
-    delay: "0.2s" 
+    // delay: "0.2s" // Removed
   }
 ];
 
-const ServicesSection = () => {
+const ServicesSection = ({ baseDelay = "0s" }: ServicesSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedServiceTitle, setSelectedServiceTitle] = useState<string | undefined>(undefined);
+
+  const openModal = (serviceTitle: string) => {
+    setSelectedServiceTitle(serviceTitle);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedServiceTitle(undefined);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
@@ -83,7 +98,13 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className={`py-16 sm:py-24 bg-white ${isVisible ? 'is-visible' : ''} fade-in-section`}>
+    <>
+    <section 
+      id="services" 
+      ref={sectionRef} 
+      className={`py-16 sm:py-24 bg-white ${isVisible ? 'is-visible' : ''} fade-in-section`}
+      style={{ transitionDelay: isVisible ? baseDelay : '0s' }}
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16 md:mb-20"> 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4 sm:mb-5">My Service Packages</h2>
@@ -91,11 +112,11 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
-          {servicesData.map((service) => (
+          {servicesData.map((service, cardIndex) => ( 
             <div 
               key={service.id} 
               className={`service-card bg-slate-50 p-6 sm:p-8 rounded-xl shadow-xl border-2 border-transparent hover:border-cyan-500/50 flex flex-col justify-between ${isVisible ? 'is-visible' : ''} fade-in-section ${service.highlightClass || ''}`}
-              style={{ transitionDelay: isVisible ? service.delay : '0s' }} 
+              style={{ transitionDelay: isVisible ? `calc(${baseDelay} + ${cardIndex * 0.1}s)` : '0s' }} 
             >
               <div> 
                 <div className="text-cyan-600 mb-4 sm:mb-6 flex justify-center"> 
@@ -105,32 +126,39 @@ const ServicesSection = () => {
                 <p className="text-sm text-slate-600 mb-4 sm:mb-5 text-center min-h-[60px]">{service.description}</p>
                 <ul className="text-xs sm:text-sm text-slate-600 list-disc list-inside space-y-1 sm:space-y-2 pl-2 mb-6">
                   {service.details.map((detail, index) => (
-                    <li key={index}>{detail}</li>
+                    <li key={index}><span className="text-cyan-600 mr-1">✅</span>{detail}</li>
                   ))}
                 </ul>
               </div>
 
               <div> 
                 <p className="text-center text-lg sm:text-xl font-semibold text-cyan-700 mb-5">{service.rate}</p>
-                <a 
-                  href={service.buttonLink || "#contact"} 
-                  onClick={(e) => { 
-                    if (service.buttonLink === "#contact" || !service.buttonLink) {
-                      e.preventDefault(); 
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
+                <button 
+                  onClick={() => openModal(service.title)}
                   className="block w-full text-center mt-auto text-white bg-cyan-700 hover:bg-cyan-800 font-semibold py-3 px-4 rounded-lg transition duration-300 text-sm sm:text-base"
                 >
                   {service.buttonText}
-                </a>
+                </button>
               </div>
             </div>
           ))}
         </div>
+        <div className="text-center mt-12 sm:mt-16">
+            <Link href="/services" className="inline-block bg-cyan-700 hover:bg-cyan-800 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 text-base sm:text-lg">
+                View All Service Details
+            </Link>
+        </div>
       </div>
     </section>
+    <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+        serviceTitle={selectedServiceTitle}
+        emailAddress="hello@yourdomain.com" 
+        emailSubject="Service Package Inquiry"
+      />
+    </>
   );
 };
 
-export default ServicesSection; 
+export default ServicesSection;

@@ -66,7 +66,7 @@ const Footer = () => {
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
               <li>
                 <a href="mailto:hello@yourdomain.com" className="footer-link hover:text-cyan-400 transition duration-300 flex items-center justify-center sm:justify-start">
-                  <EmailIcon /> hello@yourdomain.com
+                  <EmailIcon /> iamwillempacardo@gmail.com
                 </a>
               </li>
               <li className="flex items-center justify-center sm:justify-start">
@@ -86,10 +86,9 @@ const Footer = () => {
           <div>
             <h5 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Connect</h5>
             <div className="flex space-x-5 justify-center sm:justify-start">
-              <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><LinkedInIcon /></a>
-              <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><GitHubIcon /></a>
-              <a href="YOUR_TWITTER_URL" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><TwitterIcon /></a>
-              <a href="YOUR_INSTAGRAM_URL" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><InstagramIcon /></a>
+              <a href="https://www.linkedin.com/in/willempacardo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><LinkedInIcon /></a>
+              <a href="https://github.com/thisismaw" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><GitHubIcon /></a>
+              <a href="YOUR_INSTAGRAM_URL" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><InstagramIcon /></a> 
             </div>
           </div>
         </div>

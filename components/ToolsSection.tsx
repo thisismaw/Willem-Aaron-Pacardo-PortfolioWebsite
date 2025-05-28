@@ -13,11 +13,11 @@ interface Tool {
 }
 
 const toolsData: Tool[] = [
-  { id: 1, name: "WordPress", logoSrc: "/images/tools/wordpress-logo.svg", logoAlt: "WordPress Logo", description: "Versatile Content Management System.", delay: "0s" },
-  { id: 2, name: "Notion", logoSrc: "/images/tools/notion-logo.svg", logoAlt: "Notion Logo", description: "All-in-one workspace for notes & projects.", delay: "0.05s" },
-  { id: 3, name: "Google Workspace", logoSrc: "/images/tools/gworkspace-logo.svg", logoAlt: "Google Workspace Logo", description: "Suite of collaboration & productivity tools.", delay: "0.1s" },
-  { id: 4, name: "CapCut", logoSrc: "/images/tools/capcut-logo.svg", logoAlt: "CapCut Logo", description: "User-friendly video editing for social media.", delay: "0.15s" },
-  { id: 5, name: "Canva", logoSrc: "/images/tools/canva-logo.svg", logoAlt: "Canva Logo", description: "Intuitive graphic design for all needs.", delay: "0.2s" },
+  { id: 1, name: "WordPress", logoSrc: "tools/wordpress-icon.svg", logoAlt: "WordPress Logo", description: "Versatile Content Management System.", delay: "0s" },
+  { id: 2, name: "Notion", logoSrc: "/tools/notion-icon.svg", logoAlt: "Notion Logo", description: "All-in-one workspace for notes & projects.", delay: "0.05s" },
+  { id: 3, name: "Google Workspace", logoSrc: "tools/google-drive-color-icon.svg", logoAlt: "Google Workspace Logo", description: "Suite of collaboration & productivity tools.", delay: "0.1s" },
+  { id: 4, name: "CapCut", logoSrc: "/tools/capcut-icon.svg", logoAlt: "CapCut Logo", description: "User-friendly video editing for social media.", delay: "0.15s" },
+  { id: 5, name: "Canva", logoSrc: "tools/canva-icon.svg", logoAlt: "Canva Logo", description: "Intuitive graphic design for all needs.", delay: "0.2s" },
 ];
 
 
