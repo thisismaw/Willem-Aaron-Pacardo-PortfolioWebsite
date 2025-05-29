@@ -56,7 +56,6 @@ const Footer = () => {
               <li><a href="#home" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Home</a></li>
               <li><a href="#services" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Services</a></li>
               <li><a href="#portfolio" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Portfolio</a></li>
-              <li><a href="#blog" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Blog</a></li>
               <li><a href="#about" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">About Me</a></li>
             </ul>
           </div>

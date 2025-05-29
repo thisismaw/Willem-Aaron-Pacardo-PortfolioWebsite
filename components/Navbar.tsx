@@ -13,7 +13,7 @@ const Navbar = () => {
     if (typeof window !== 'undefined') {
       const currentPathBase = pathname.split('/')[1] || 'home';
       if (pathname === '/') {
-        // Scroll listener handles this for homepage
+        if (window.scrollY === 0) setActiveLink('home'); 
       } else {
         setActiveLink(currentPathBase);
       }
@@ -25,18 +25,23 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleAnchorLinkClick = (sectionId: string) => {
+  const handleAnchorLinkClick = (sectionId: string, href: string) => {
     setIsMobileMenuOpen(false); 
-    setActiveLink(sectionId); 
-    if (pathname !== '/') {
-      window.location.href = `/#${sectionId}`;
-    } else {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const yOffset = -68; 
-        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({top: y, behavior: 'smooth'});
-      }
+    
+    if (href.startsWith('/#')) { 
+        setActiveLink(sectionId);
+        if (pathname !== '/') {
+            window.location.href = href; 
+        } else {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const yOffset = -68; 
+                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+        }
+    } else { 
+        setActiveLink(sectionId); 
     }
   };
   
@@ -79,7 +84,6 @@ const Navbar = () => {
     { id: 'tools', label: 'Tools', href: '/#tools', isPageLink: false },
     { id: 'about', label: 'About', href: '/#about', isPageLink: false },
     { id: 'portfolio', label: 'Portfolio', href: '/portfolio', isPageLink: true }, 
-    { id: 'blog', label: 'Blog', href: '/blog', isPageLink: true }, 
   ];
 
   return (
@@ -87,10 +91,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center"> 
         <Link 
           href="/" 
-          onClick={() => handleAnchorLinkClick('home')} 
-          className="font-logo-rocksalt text-2xl sm:text-3xl font-bold text-cyan-700 hover:text-cyan-800 transition-colors"
+          onClick={() => handleAnchorLinkClick('home', '/#home')} 
+          className="font-logo-rocksalt text-2xl sm:text-3xl text-cyan-700 hover:text-cyan-800 transition-colors"
         > 
-            AssistByAaron 
+          AssistbyAaron
         </Link>
         
         <div className="hidden md:flex space-x-4 lg:space-x-6 items-center"> 
@@ -110,7 +114,7 @@ const Navbar = () => {
                 href={item.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleAnchorLinkClick(item.id);
+                  handleAnchorLinkClick(item.id, item.href);
                 }}
                 className={`nav-link text-slate-700 hover:text-cyan-700 font-medium px-2 py-1 ${activeLink === item.id ? 'active-link' : ''}`}
               >
@@ -118,16 +122,23 @@ const Navbar = () => {
               </a>
             )
           ))}
-          <a
+          <Link
             href="/#contact" 
             onClick={(e) => {
-              e.preventDefault();
-              handleAnchorLinkClick('contact');
+              if (pathname === '/') {
+                e.preventDefault();
+                handleAnchorLinkClick('contact', '/#contact');
+              } else {
+                // If on another page, let Link navigate to homepage and then scroll
+                // Or, for a more direct scroll, you might need a more complex solution or rely on browser behavior for the anchor.
+                // For now, this allows navigation and sets active link.
+                setIsMobileMenuOpen(false); setActiveLink('contact');
+              }
             }}
             className="bg-cyan-700 hover:bg-cyan-800 text-white font-semibold py-2 px-4 lg:px-5 rounded-lg transition duration-300 ease-in-out text-sm sm:text-base"
           >
             Contact
-          </a>
+          </Link>
         </div>
 
         <div className="md:hidden">
@@ -150,7 +161,7 @@ const Navbar = () => {
             <Link 
               key={item.id} 
               href={item.href} 
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => { setIsMobileMenuOpen(false); setActiveLink(item.id);}}
               className="block px-6 py-3 text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 transition-colors duration-200 text-center"
             >
               {item.label}
@@ -161,7 +172,7 @@ const Navbar = () => {
               href={item.href}
               onClick={(e) => {
                 e.preventDefault();
-                handleAnchorLinkClick(item.id);
+                handleAnchorLinkClick(item.id, item.href);
               }}
               className="block px-6 py-3 text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 transition-colors duration-200 text-center"
             >
@@ -169,19 +180,22 @@ const Navbar = () => {
             </a>
            )
         ))}
-        <a
+        <Link
           href="/#contact"
           onClick={(e) => {
-            e.preventDefault();
-            handleAnchorLinkClick('contact');
+             if (pathname === '/') {
+                e.preventDefault();
+                handleAnchorLinkClick('contact', '/#contact');
+              } else {
+                setIsMobileMenuOpen(false); setActiveLink('contact');
+              }
           }}
           className="block px-6 py-3 text-cyan-700 bg-cyan-50 hover:bg-cyan-100 font-semibold transition-colors duration-200 text-center mt-2 mx-4 rounded-md"
         >
           Contact
-        </a>
+        </Link>
       </div>
     </nav>
   );
 };
-
 export default Navbar;
