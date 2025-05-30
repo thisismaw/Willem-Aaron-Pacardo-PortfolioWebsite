@@ -77,13 +77,13 @@ const Navbar = () => {
     }
   }, [pathname]);
 
-
   const navItems = [
     { id: 'home', label: 'Home', href: '/#home', isPageLink: false },
-    { id: 'services', label: 'Services', href: '/services', isPageLink: true }, 
+    { id: 'services', label: 'Services', href: '/#services', isPageLink: false }, // Changed back to anchor
     { id: 'tools', label: 'Tools', href: '/#tools', isPageLink: false },
     { id: 'about', label: 'About', href: '/#about', isPageLink: false },
     { id: 'portfolio', label: 'Portfolio', href: '/portfolio', isPageLink: true }, 
+    // Blog link removed
   ];
 
   return (
@@ -129,9 +129,6 @@ const Navbar = () => {
                 e.preventDefault();
                 handleAnchorLinkClick('contact', '/#contact');
               } else {
-                // If on another page, let Link navigate to homepage and then scroll
-                // Or, for a more direct scroll, you might need a more complex solution or rely on browser behavior for the anchor.
-                // For now, this allows navigation and sets active link.
                 setIsMobileMenuOpen(false); setActiveLink('contact');
               }
             }}

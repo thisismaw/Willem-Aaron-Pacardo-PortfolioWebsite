@@ -1,11 +1,26 @@
-// File: app/layout.tsx (This is the root layout)
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar'; 
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer'; 
 import './globals.css'; 
+import { Inter, Rock_Salt } from 'next/font/google'; // Import next/font
+
+// Configure Inter font for the body
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter', // CSS variable name
+  display: 'swap',
+});
+
+// Configure Rock Salt font for the logo
+const rockSalt = Rock_Salt({
+  weight: ['400'], // Rock Salt typically only has a 400 weight
+  subsets: ['latin'],
+  variable: '--font-rock-salt', // CSS variable name
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'Willem Aaron G. Pacardo - Freelance Digital Expert',
+  title: 'AssistbyAaron - Freelance Digital Expert', 
   description: 'Freelance services in video editing, social media, web development, and e-commerce.',
 };
 
@@ -15,15 +30,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    // Apply font variables to the html tag
+    <html lang="en" className={`${inter.variable} ${rockSalt.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        {/* Google Font <link> tags are no longer needed here if using next/font */}
       </head>
-      <body className="bg-slate-50 text-gray-800 antialiased"> 
+      <body className="bg-slate-50 text-slate-800 antialiased font-sans"> 
         <Navbar />
         <main>{children}</main> 
         <Footer />
