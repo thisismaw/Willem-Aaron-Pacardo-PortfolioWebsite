@@ -18,34 +18,31 @@ const Footer = () => {
             <ul className="space-y-2 sm:space-y-3">
               <li><a href="#home" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Home</a></li>
               <li><a href="#services" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Services</a></li>
-              <li><Link href="/portfolio" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Portfolio</Link></li>
-              {/* Removed Blog link from footer */}
+              <li><Link href="#portfolio" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Portfolio</Link></li>
               <li><a href="#about" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">About Me</a></li>
             </ul>
           </div>
           <div>
             <h5 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Get in Touch</h5>
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
-              <li><a href="mailto:hello@yourdomain.com" className="footer-link hover:text-cyan-400 transition duration-300 flex items-center justify-center sm:justify-start"><EmailIcon /> hello@yourdomain.com</a></li>
+              <li><a href="mailto:iamwillempacardo@gmail.com" className="footer-link hover:text-cyan-400 transition duration-300 flex items-center justify-center sm:justify-start"><EmailIcon /> iamwillempacardo@gmail.com</a></li>
               <li className="flex items-center justify-center sm:justify-start"><LocationIcon /> Polomolok, Philippines</li>
               <li className="flex items-center justify-center sm:justify-start"><GlobeIcon /> Available for Remote Worldwide</li>
-              <li><a href="#contact" className="footer-link font-medium inline-block mt-2 bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-4 rounded-md transition-colors">Start a Project</a></li>
             </ul>
           </div>
           <div>
             <h5 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Connect</h5>
             <div className="flex space-x-5 justify-center sm:justify-start">
-              <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><LinkedInIcon /></a>
-              <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><GitHubIcon /></a>
+              <a href="https://www.linkedin.com/in/willempacardo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><LinkedInIcon /></a>
+              <a href="https://github.com/thisismaw" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><GitHubIcon /></a>
               <a href="YOUR_TWITTER_URL" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><TwitterIcon /></a>
               <a href="YOUR_INSTAGRAM_URL" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" className="social-icon text-slate-400 hover:text-cyan-400 transition duration-300 text-xl sm:text-2xl"><InstagramIcon /></a>
             </div>
           </div>
         </div>
         <div className="border-t border-slate-700 pt-8 sm:pt-10 text-center">
-          <p className="text-xs sm:text-sm mb-2">&copy; {currentYear} Your Name/Your Brand. All Rights Reserved.</p>
-          <p className="text-xs text-slate-400"><Link href="/privacy-policy" className="footer-link hover:text-cyan-400">Privacy Policy</Link> | <Link href="/terms-of-service" className="footer-link hover:text-cyan-400">Terms of Service</Link></p>
-          <p className="text-xs text-slate-400 mt-2"> Made with <HeartIcon /> using Next.js, Tailwind CSS & Hosted on GitHub Pages </p>
+          <p className="text-xs sm:text-sm mb-2">&copy; {currentYear} AssistByAaron. All Rights Reserved.</p>
+          <p className="text-xs text-slate-400 mt-2"> Made with <HeartIcon /> using Next.js, Tailwind CSS & Hosted on Vercel </p>
         </div>
       </div>
     </footer>

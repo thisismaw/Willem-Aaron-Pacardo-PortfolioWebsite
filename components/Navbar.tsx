@@ -82,8 +82,7 @@ const Navbar = () => {
     { id: 'services', label: 'Services', href: '/#services', isPageLink: false }, // Changed back to anchor
     { id: 'tools', label: 'Tools', href: '/#tools', isPageLink: false },
     { id: 'about', label: 'About', href: '/#about', isPageLink: false },
-    { id: 'portfolio', label: 'Portfolio', href: '/portfolio', isPageLink: true }, 
-    // Blog link removed
+    { id: 'portfolio', label: 'Portfolio', href: '/#portfolio', isPageLink: true }, 
   ];
 
   return (

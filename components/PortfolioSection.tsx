@@ -131,11 +131,6 @@ const PortfolioSection = ({ baseDelay = "0s" }: PortfolioSectionProps) => {
             </div>
           ))}
         </div>
-         <div className="text-center mt-12 sm:mt-16">
-            <Link href="/portfolio" className="inline-block bg-transparent border-2 border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 text-base sm:text-lg">
-                View All Projects
-            </Link>
-        </div>
       </div>
     </section>
   );

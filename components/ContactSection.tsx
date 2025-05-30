@@ -18,8 +18,8 @@ const ContactSection = ({ baseDelay = "0s" }: ContactSectionProps) => {
           Have a project in mind, a question, or just want to say hi? I&apos;d love to hear from you! 
           Feel free to reach out, and let&apos;s discuss how we can bring your ideas to life.
         </p>
-        <a href="mailto:hello@yourdomain.com" className="inline-block bg-cyan-700 hover:bg-cyan-800 text-white font-semibold py-3 px-8 sm:py-4 sm:px-10 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105 text-base sm:text-lg">
-          Email Me: hello@yourdomain.com 
+        <a href="mailto:iamwillempacardo@gmail.com" className="inline-block bg-cyan-700 hover:bg-cyan-800 text-white font-semibold py-3 px-8 sm:py-4 sm:px-10 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105 text-base sm:text-lg">
+          Email Me: iamwillempacardo@gmail.com 
         </a>
       </div>
     </section>
