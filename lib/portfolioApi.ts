@@ -3,14 +3,17 @@ export interface PortfolioItem {
   slug: string; 
   title: string;
   category: string; 
-  imageUrl: string; 
+  imageUrl: string; // Main thumbnail/cover image
   shortDescription: string;
   fullDescription?: string; 
   client?: string;          
   challenge?: string;       
   solution?: string;        
   results?: string[];       
-  liveLink?: string;        
+  liveLink?: string; 
+  downloadUrl?: string; 
+  galleryImages?: string[]; // New: Array of image URLs for a series
+   youtubeVideoId?: string; // New: For embedding YouTube videos
   tags?: string[];          
   delay?: string; 
 }
@@ -33,71 +36,86 @@ const portfolioData: PortfolioItem[] = [
     delay: "0s",
   },
   {
-    id: 2,
-    slug: "social-media-campaign-xyz",
-    title: "Social Media Campaign XYZ",
-    category: "Social Media",
-    imageUrl: "/images/portfolio/social-PH.jpg",
-    shortDescription: "Managed a 3-month campaign increasing engagement by 150%.",
-    fullDescription: "Tech Startup Inc. needed to generate buzz and leads for their new SaaS product. I was tasked with creating and managing a 3-month targeted social media campaign across LinkedIn and Twitter. \n\nMy role involved developing the overall content strategy, crafting compelling ad copy and visuals (including short video ads edited with CapCut), setting up and optimizing ad targeting, managing the budget, and providing weekly performance reports. We utilized A/B testing for ad creatives and continuously refined our approach based on data. \n\nThe campaign successfully surpassed all key performance indicators. We achieved a 150% increase in overall engagement (likes, shares, comments) compared to previous benchmarks and generated a 70% growth in qualified leads through targeted landing pages. The client was extremely pleased with the ROI and brand visibility achieved.",
-    client: "Tech Startup Inc.",
-    tags: ["Social Media Marketing", "Content Creation", "Ad Campaign", "Lead Generation", "CapCut"],
-    delay: "0.1s",
+  id: 2,
+  slug: "crypto-fb-page-management",
+  title: "Crypto Facebook Page Management",
+  category: "Graphic Design",
+  imageUrl: "/images/portfolio/cryptographics/btc4.webp", // Cover image for the series
+  shortDescription: "Managed and designed content for a crypto-focused Facebook page.",
+  fullDescription: "I made and managed a crypto informative Facebook page. I edited content and created graphics tailored to the audience. The goal was to maintain an active and visually consistent page that simplified complex crypto concepts for everyday users.",
+  client: "Personal Project",
+  challenge: "Creating consistent, engaging visuals and simplified content in a fast-moving niche like cryptocurrency.",
+  solution: "Used Canva to design clear, informative graphics. Regularly posted bite-sized crypto updates and educational content to grow and engage the audience.",
+  results: [
+    "Built and maintained a niche-specific crypto audience.",
+    "Improved engagement with visually optimized and easy-to-digest posts.",
+    "Established a consistent brand tone and visual style."
+  ],
+  galleryImages: [
+    "/images/portfolio/cryptographics/btc1.webp",
+    "/images/portfolio/cryptographics/btc2.webp",
+    "/images/portfolio/cryptographics/btc5.webp",
+    "/images/portfolio/cryptographics/btc3.webp"
+  ],
+  tags: ["Canva", "Content Management", "Crypto", "Facebook Marketing", "Graphic Design"],
+  delay: "0.1s"
   },
   {
     id: 3,
-    slug: "capcut-video-series",
-    title: "Explainer Video Series",
-    category: "Video Editing",
-    imageUrl: "/images/portfolio/social-PH.jpg",
-    shortDescription: "Produced 10 engaging explainer videos using CapCut & DaVinci Resolve.",
-    fullDescription: "LearnWell Platform, an online education provider, required a series of 10 short, animated explainer videos to simplify complex topics for their students. I worked closely with their subject matter experts to review scripts and storyboards. \n\nUsing CapCut for initial edits and mobile-friendly aspects, and DaVinci Resolve for more advanced color grading and effects, I produced the full series. This included sourcing appropriate B-roll footage and stock animations, creating custom motion graphics for titles and callouts, and ensuring consistent branding across all videos. \n\nThe videos have received excellent feedback from students for their clarity and engaging style, contributing to higher course completion rates.",
-    client: "LearnWell Platform",
-    tags: ["Video Editing", "CapCut", "DaVinci Resolve", "Motion Graphics", "Educational Content"],
+    slug: "travel-itinerary-planning",
+    title: "An Arctic Tapestry",
+    category: "Document Creation",
+    imageUrl: "/images/thumbnail/arctic-thumbnail.png",
+    shortDescription: "A detailed travel itinerary to Norway showcasing planning and organizational skills. Click to download",
+    fullDescription: "This is 14-day travel itinerary for a trip to Norway demonstrates meticulous planning, research, and organizational skills. It includes daily schedules, booking confirmations, budget considerations, transportation details, and recommendations for activities and dining. The document is designed to be clear, easy to follow, and visually appealing, providing a seamless travel experience.",
+    client: "NDA",
+    challenge: "Creating a comprehensive yet easy-to-follow travel plan for a multi-day trip.",
+    solution: "Researched and compiled all necessary travel information, organized it into a comfortable schedule, and presented it in a clear, user-friendly PDF format.",
+    results: ["Demonstrates strong organizational and research skills.", "Showcases ability to create professional, detailed documents.", "Provides a tangible example of planning capabilities."],
+    downloadUrl: "/downloads/An-Arctic-Tapestry.pdf", // Ensure this file exists in public/downloads/
+    tags: ["Travel Planning", "Document Creation", "Organization", "Research"],
     delay: "0.2s",
   },
   {
-    id: 4,
-    slug: "notion-startup-os",
-    title: "Startup Operations Hub",
-    category: "Notion",
-    imageUrl: "/images/portfolio/social-PH.jpg",
-    shortDescription: "Built a custom Notion dashboard for a tech startup, improving team productivity.",
-    fullDescription: "A fast-growing tech startup was struggling with scattered project information, inefficient task tracking, and a lack of a central knowledge base. I designed and implemented a comprehensive 'Startup OS' within Notion. \n\nThis involved creating interconnected databases for projects, tasks (with assignments, deadlines, and progress tracking), a client CRM, a content calendar, and a company wiki for SOPs and resources. Custom dashboards were built for different team roles, providing personalized views of relevant information. \n\nThe new Notion system led to a significant improvement in team productivity, with an estimated 10+ hours saved per week collectively on project management and information retrieval. It also fostered better collaboration and transparency across the organization.",
-    client: "Innovatech Solutions",
-    tags: ["Notion", "Project Management", "Workflow Automation", "CRM", "Knowledge Base"],
-    delay: "0.3s",
+  id: 4,
+  slug: "mawi-travels-video-editing",
+  title: "Mawi Travels - YouTube Video Edits",
+  category: "Video Editing / Travel",
+  imageUrl: "/images/thumbnail/arctic-thumbnail.png", // Replace with actual video thumbnail URL
+  shortDescription: "Edited both Shorts and long-form travel vlogs for my personal channel, Mawi Travels.",
+  fullDescription: "For my YouTube channel 'Mawi Travels,' I edited a variety of travel videos, including both long-form vlogs and YouTube Shorts. The focus was on clean, simple storytelling through clips, pacing, and music, without using motion graphics or advanced sound design. The goal was to showcase destinations through a minimalist and immersive edit.",
+  client: "Personal Project - Mawi Travels (YouTube)",
+  challenge: "Creating engaging travel content using only basic editing techniques and natural footage.",
+  solution: "Used CapCut to trim footage, arrange story flow, apply simple transitions, add text overlays when needed, and match visuals to music. Prioritized authentic visuals over effects.",
+  results: [
+    "Built a library of travel content for YouTube Shorts and vlogs.",
+    "Improved storytelling and pacing with minimalist editing.",
+    "Consistent visual style and growing viewer interest (mock)."
+  ],
+  youtubeVideoId: "dQw4w9WgXcQ", // Replace with actual video ID from Mawi Travels
+  liveLink: "https://www.youtube.com/@mawmawmawi", // Replace with your actual channel link if available
+  tags: ["Video Editing", "CapCut", "Travel Vlog", "YouTube Shorts", "Simple Edits"],
+  delay: "0.3s"
   },
   {
     id: 5,
-    slug: "google-workspace-streamline",
-    title: "Workspace Optimization",
-    category: "Google Workspace",
-    imageUrl: "/images/portfolio/social-PH.jpg",
-    shortDescription: "Streamlined email and file management for a small consultancy.",
-    fullDescription: "A small consultancy firm was facing challenges with inefficient email management, disorganized Google Drive files, and inconsistent calendar scheduling. I conducted an audit of their Google Workspace usage and implemented several optimizations. \n\nThis included setting up shared drives with clear folder structures and permissions, creating email filters and templates in Gmail to manage high volumes of communication, and standardizing their Google Calendar usage for team scheduling. I also provided training to their team on best practices. \n\nThe result was a more organized and efficient digital workspace, reducing time spent searching for files and improving internal communication.",
-    client: "Synergy Consultants",
-    tags: ["Google Workspace", "Productivity", "File Management", "Email Management", "Admin Support"],
+    slug: "nature-retreat-drone-edit",
+    title: "Nature Retreat - Drone & GoPro Edit",
+    category: "Video Editing / Travel",
+    imageUrl: "/images/thumbnail/arctic-thumbnail.png", // Replace with actual video thumbnail URL
+    shortDescription: "Scenic drone and GoPro footage compiled into a serene travel montage. Edited with DaVinci Resolve.",
+    fullDescription: "A calming montage of a nature retreat, featuring stunning drone aerials and immersive GoPro shots. Edited in DaVinci Resolve, with a focus on smooth transitions, cinematic color grading, and evocative sound design to highlight the tranquility of the location.",
+    client: "Travel Vlogger (Collaboration)",
+    challenge: "Combining diverse footage types (drone, GoPro) into a cohesive and emotionally resonant video.",
+    solution: "Leveraged DaVinci Resolve for advanced color grading, clip stabilization, and audio mixing. Created a narrative flow that guides the viewer through the experience.",
+    results: ["Effectively captured the serene beauty of the location.", "Showcases skills in DaVinci Resolve and handling different video formats.", "Enhanced the client's vlog series with a professional touch."],
+    youtubeVideoId: "rokGy0huYEA", // Example: Relaxing Music video ID, REPLACE THIS
+    liveLink: "https://www.youtube.com/watch?v=rokGy0huYEA",
+    tags: ["Video Editing", "DaVinci Resolve", "Drone Footage", "GoPro", "Color Grading", "Sound Design"],
     delay: "0.4s",
-  },
-  {
-    id: 6,
-    slug: "canva-brand-assets",
-    title: "Brand Asset Creation",
-    category: "Canva",
-    imageUrl: "/images/portfolio/social-PH.jpg",
-    shortDescription: "Designed a complete set of social media templates and brand assets.",
-    fullDescription: "A new lifestyle blogger needed a cohesive set of brand assets for her online presence. Using Canva, I designed a suite of templates including Instagram post and story graphics, Pinterest pins, YouTube channel art, and a simple logo. \n\nThe designs focused on her brand&apos;s aesthetic – minimalist and modern with a touch of warmth. I provided a set of editable Canva templates so she could easily create new content while maintaining brand consistency. This empowered her to quickly produce professional-looking visuals without needing advanced design skills.",
-    client: "Lifestyle Blogger",
-    tags: ["Canva", "Graphic Design", "Branding"],
-    delay: "0.5s",
-  },
+  }
 ];
 
 export function getAllPortfolioItems(): PortfolioItem[] {
   return portfolioData;
-}
-
-export function getPortfolioItemBySlug(slug: string): PortfolioItem | undefined {
-  return portfolioData.find(item => item.slug === slug);
 }

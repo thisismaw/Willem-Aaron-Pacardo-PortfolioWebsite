@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link'; // Import Link
+
 interface ContactSectionProps { baseDelay?: string; }
 const ContactSection = ({ baseDelay = "0s" }: ContactSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -10,6 +12,9 @@ const ContactSection = ({ baseDelay = "0s" }: ContactSectionProps) => {
     if (currentRef) observer.observe(currentRef);
     return () => { if (currentRef) observer.unobserve(currentRef); };
   }, []);
+
+  const intakeFormUrl = "https://assistbyaaron.neetoform.com/2fabcc868482e705acd3";
+
   return (
     <section id="contact" ref={sectionRef} className={`py-16 sm:py-24 bg-slate-100 ${isVisible ? 'is-visible' : ''} fade-in-section`} style={{ transitionDelay: isVisible ? baseDelay : '0s' }}>
       <div className="container mx-auto px-4 sm:px-6 text-center">
@@ -18,9 +23,14 @@ const ContactSection = ({ baseDelay = "0s" }: ContactSectionProps) => {
           Have a project in mind, a question, or just want to say hi? I&apos;d love to hear from you! 
           Feel free to reach out, and let&apos;s discuss how we can bring your ideas to life.
         </p>
-        <a href="mailto:iamwillempacardo@gmail.com" className="inline-block bg-cyan-700 hover:bg-cyan-800 text-white font-semibold py-3 px-8 sm:py-4 sm:px-10 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105 text-base sm:text-lg">
-          Email Me: iamwillempacardo@gmail.com 
-        </a>
+        <Link 
+          href={intakeFormUrl} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-block bg-cyan-700 hover:bg-cyan-800 text-white font-semibold py-3 px-8 sm:py-4 sm:px-10 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105 text-base sm:text-lg"
+        >
+          Start with My Intake Form
+        </Link>
       </div>
     </section>
   );

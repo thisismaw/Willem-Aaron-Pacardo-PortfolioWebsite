@@ -14,7 +14,7 @@ export default function HomePage() {
       <ServicesSection baseDelay="0.2s" /> 
       <ToolsSection  /> 
       <AboutSection  /> 
-      <PortfolioSection baseDelay="0.3s" /> 
+      <PortfolioSection /> 
       <ContactSection  />
     </>
   );

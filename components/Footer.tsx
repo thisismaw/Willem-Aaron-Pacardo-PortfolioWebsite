@@ -9,6 +9,7 @@ const InstagramIcon = () => ( <svg className="w-6 h-6" fill="currentColor" viewB
 const HeartIcon = () => ( <svg className="w-3 h-3 inline-block text-cyan-500 mx-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd"></path></svg> );
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const intakeFormUrl = "https://assistbyaaron.neetoform.com/2fabcc868482e705acd3";
   return (
     <footer className="bg-slate-800 text-slate-300 py-12 sm:py-16"> 
       <div className="container mx-auto px-4 sm:px-6">
@@ -18,16 +19,25 @@ const Footer = () => {
             <ul className="space-y-2 sm:space-y-3">
               <li><a href="#home" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Home</a></li>
               <li><a href="#services" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Services</a></li>
-              <li><Link href="#portfolio" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Portfolio</Link></li>
+              <li><Link href="/portfolio" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">Portfolio</Link></li>
               <li><a href="#about" className="footer-link hover:text-cyan-400 transition duration-300 text-sm sm:text-base">About Me</a></li>
             </ul>
           </div>
           <div>
             <h5 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Get in Touch</h5>
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
-              <li><a href="mailto:iamwillempacardo@gmail.com" className="footer-link hover:text-cyan-400 transition duration-300 flex items-center justify-center sm:justify-start"><EmailIcon /> iamwillempacardo@gmail.com</a></li>
+              <li>
+                <Link href={intakeFormUrl} target="_blank" rel="noopener noreferrer" className="footer-link hover:text-cyan-400 transition duration-300 flex items-center justify-center sm:justify-start">
+                  <EmailIcon /> Start Here (Intake Form)
+                </Link>
+              </li>
               <li className="flex items-center justify-center sm:justify-start"><LocationIcon /> Polomolok, Philippines</li>
               <li className="flex items-center justify-center sm:justify-start"><GlobeIcon /> Available for Remote Worldwide</li>
+              <li>
+                <Link href={intakeFormUrl} target="_blank" rel="noopener noreferrer" className="footer-link font-medium inline-block mt-2 bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-4 rounded-md transition-colors">
+                  Start a Project
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -41,8 +51,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-slate-700 pt-8 sm:pt-10 text-center">
-          <p className="text-xs sm:text-sm mb-2">&copy; {currentYear} AssistByAaron. All Rights Reserved.</p>
-          <p className="text-xs text-slate-400 mt-2"> Made with <HeartIcon /> using Next.js, Tailwind CSS & Hosted on Vercel </p>
+          <p className="text-xs sm:text-sm mb-2">&copy; {currentYear} AssistbyAaron. All Rights Reserved.</p>
+          <p className="text-xs text-slate-400"><Link href="/privacy-policy" className="footer-link hover:text-cyan-400">Privacy Policy</Link> | <Link href="/terms-of-service" className="footer-link hover:text-cyan-400">Terms of Service</Link></p>
+          <p className="text-xs text-slate-400 mt-2"> Made with <HeartIcon /> using Next.js, Tailwind CSS & Hosted on Vercel</p>
         </div>
       </div>
     </footer>
