@@ -20,21 +20,25 @@ export interface PortfolioItem {
 
 const portfolioData: PortfolioItem[] = [
   {
-    id: 1,
-    slug: "wordpress-client-site",
-    title: "Client Website Redesign",
-    category: "WordPress",
-    imageUrl: "/images/portfolio/social-PH.jpg",
-    shortDescription: "Complete redesign for a local bakery, boosting online orders by 30%.",
-    fullDescription: "The client, 'The Sweet Spot Bakery', approached me with an outdated website that wasn&apos;t mobile-friendly and lacked any e-commerce capabilities. Their primary goal was to increase online visibility and allow customers to place orders directly through the site. \n\nI developed a fully custom, responsive WordPress theme from scratch, focusing on a clean, appetizing design that reflected their brand. Key features included an intuitive online ordering system integrated with WooCommerce, optimized product pages with high-quality imagery, and a streamlined checkout process. Local SEO best practices were implemented throughout the site. \n\nPost-launch, the bakery saw a 30% increase in online orders within the first two months and a significant improvement in their local search engine rankings, often appearing in the top 3 results for relevant keywords. The bounce rate also decreased by 50%, indicating a much-improved user experience.",
-    client: "The Sweet Spot Bakery",
-    challenge: "Outdated website with no e-commerce functionality and poor mobile experience, leading to missed sales opportunities.",
-    solution: "Developed a custom, responsive WordPress theme with WooCommerce integration. Implemented an intuitive online ordering system, optimized product pages for conversions, and improved local SEO.",
-    results: ["30% increase in online orders within 2 months.", "Improved local SEO ranking to top 3 for key search terms.", "50% reduction in website bounce rate.", "Enhanced brand image and customer satisfaction."],
-    liveLink: "#", 
-    tags: ["WordPress", "E-commerce", "Web Design", "SEO", "WooCommerce"],
-    delay: "0s",
-  },
+  id: 1,
+  slug: "matcha-haven-website",
+  title: "Matcha Haven Website Design",
+  category: "Web Design",
+  imageUrl: "/images/portfolio/matchahaven/matchahaven.png",
+  shortDescription: "A mock e-commerce website for a matcha store, designed in Figma and built with HTML/CSS.",
+  fullDescription: "I created a mock e-commerce website for a  matcha brand, starting with a UI design in Figma. The goal was to design a clean, modern storefront that emphasizes product visuals and a calming aesthetic. After finalizing the layout in Figma, I translated the design into a fully functional static website using HTML and CSS. The project was hosted on GitHub Pages as a demonstration of my design-to-code workflow.",
+  client: "Personal Project",
+  challenge: "Design and develop a cohesive and elegant matcha storefront using only front-end tools.",
+  solution: "Crafted a UI layout in Figma focusing on color harmony, spacing, and simplicity. Then coded the site from scratch using semantic HTML and CSS. Used Flexbox and media queries for responsive behavior. All visuals and layout components were custom-made based on the original Figma design.",
+  results: [
+    "Demonstrated ability to take a Figma design from concept to code.",
+    "Created a clean and responsive product-focused site.",
+    "Successfully hosted the project live on GitHub Pages."
+  ],
+  liveLink: "https://thisismaw.github.io/Matcha-Haven/", 
+  tags: ["HTML", "CSS", "Figma", "Web Design", "UI Design", "Responsive Design", "GitHub Pages"],
+  delay: "0.4s"
+},
   {
   id: 2,
   slug: "crypto-fb-page-management",
@@ -81,7 +85,7 @@ const portfolioData: PortfolioItem[] = [
   slug: "mawi-travels-video-editing",
   title: "Mawi Travels - YouTube Video Edits",
   category: "Video Editing / Travel",
-  imageUrl: "/images/thumbnail/arctic-thumbnail.png", // Replace with actual video thumbnail URL
+  imageUrl: "/images/thumbnail/thumbnail-portfolioYT.png", // Replace with actual video thumbnail URL
   shortDescription: "Edited both Shorts and long-form travel vlogs for my personal channel, Mawi Travels.",
   fullDescription: "For my YouTube channel 'Mawi Travels,' I edited a variety of travel videos, including both long-form vlogs and YouTube Shorts. The focus was on clean, simple storytelling through clips, pacing, and music, without using motion graphics or advanced sound design. The goal was to showcase destinations through a minimalist and immersive edit.",
   client: "Personal Project - Mawi Travels (YouTube)",
