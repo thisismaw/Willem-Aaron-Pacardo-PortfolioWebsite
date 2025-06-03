@@ -1,4 +1,3 @@
-// File: components/PortfolioDetailModal.tsx <-- UPDATED
 "use client";
 
 import React from 'react';
@@ -28,7 +27,7 @@ const PortfolioDetailModal = ({ isOpen, onClose, item }: PortfolioDetailModalPro
       onClick={onClose} 
     >
       <div 
-        className="bg-white rounded-xl shadow-2xl p-6 sm:p-8 w-full max-w-3xl max-h-[90vh] overflow-y-auto transform transition-all duration-300 ease-in-out scale-95 opacity-0 animate-modalShow" // Increased max-w
+        className="bg-white rounded-xl shadow-2xl p-6 sm:p-8 w-full max-w-3xl max-h-[90vh] overflow-y-auto transform transition-all duration-300 ease-in-out scale-95 opacity-0 animate-modalShow"
         onClick={(e) => e.stopPropagation()} 
       >
         <div className="flex justify-between items-start mb-6">
@@ -45,8 +44,20 @@ const PortfolioDetailModal = ({ isOpen, onClose, item }: PortfolioDetailModalPro
           </button>
         </div>
 
-        {/* Main Image (Cover Image for the Series) */}
-        {item.imageUrl && (
+        {/* YouTube Video Embed */}
+        {item.youtubeVideoId ? (
+          <div className="aspect-video w-full mb-6 rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/${item.youtubeVideoId}?autoplay=0&rel=0`}
+              title={item.title || "YouTube video player"}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ) : item.imageUrl ? ( // Main Image (if no YouTube video)
           <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-6 shadow-lg">
             <Image
               src={item.imageUrl}
@@ -56,12 +67,12 @@ const PortfolioDetailModal = ({ isOpen, onClose, item }: PortfolioDetailModalPro
               className="object-cover"
             />
           </div>
-        )}
+        ) : null}
         
-        {/* Gallery Images Section */}
-        {item.galleryImages && item.galleryImages.length > 0 && (
+        {/* Gallery Images Section (if no YouTube video or as additional visuals) */}
+        {item.galleryImages && item.galleryImages.length > 0 && !item.youtubeVideoId && (
           <div className="mb-6">
-            <h4 className="text-xl font-semibold text-slate-700 mb-3">Design Series / Gallery</h4>
+            <h4 className="text-xl font-semibold text-slate-700 mb-3">Image Gallery</h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {item.galleryImages.map((imgSrc, index) => (
                 <div key={index} className="relative aspect-square rounded-md overflow-hidden shadow">
@@ -99,16 +110,9 @@ const PortfolioDetailModal = ({ isOpen, onClose, item }: PortfolioDetailModalPro
           </div>
         )}
         
-        {item.fullDescription && (!item.galleryImages || item.galleryImages.length === 0) && ( // Show if no gallery or as additional details
-          <div className="mb-4">
-            <h4 className="text-lg font-semibold text-slate-700 mb-1">Project Details:</h4>
-            <div className="text-slate-600">{renderDescription(item.fullDescription)}</div>
-          </div>
-        )}
-         {/* If there's a gallery, the fullDescription might serve as an intro to the series */}
-        {item.fullDescription && item.galleryImages && item.galleryImages.length > 0 && (
+        {item.fullDescription && (
              <div className="mb-4">
-                <h4 className="text-lg font-semibold text-slate-700 mb-1">About The Series:</h4>
+                <h4 className="text-lg font-semibold text-slate-700 mb-1">About This Project:</h4>
                 <div className="text-slate-600">{renderDescription(item.fullDescription)}</div>
             </div>
         )}
@@ -150,7 +154,19 @@ const PortfolioDetailModal = ({ isOpen, onClose, item }: PortfolioDetailModalPro
               Download File
             </a>
           )}
-          {item.liveLink && item.liveLink !== "#" && (
+          {/* Link to YouTube video on YouTube.com if liveLink is provided and it's a YouTube video */}
+          {item.youtubeVideoId && item.liveLink && item.liveLink.includes("youtube.com") && (
+             <Link
+              href={item.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 px-5 rounded-md transition-colors duration-300 text-sm"
+            >
+              Watch on YouTube
+            </Link>
+          )}
+          {/* General Live Link (if not a YouTube video with a specific button already) */}
+          {item.liveLink && item.liveLink !== "#" && !(item.youtubeVideoId && item.liveLink.includes("youtube.com")) && (
             <Link
               href={item.liveLink}
               target="_blank"
