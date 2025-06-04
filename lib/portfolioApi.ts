@@ -100,23 +100,6 @@ const portfolioData: PortfolioItem[] = [
   liveLink: "https://www.youtube.com/@mawmawmawi", // Replace with your actual channel link if available
   tags: ["Video Editing", "CapCut", "Travel Vlog", "YouTube Shorts", "Simple Edits"],
   delay: "0.3s"
-  },
-  {
-    id: 5,
-    slug: "nature-retreat-drone-edit",
-    title: "Nature Retreat - Drone & GoPro Edit",
-    category: "Video Editing / Travel",
-    imageUrl: "/images/thumbnail/arctic-thumbnail.png", // Replace with actual video thumbnail URL
-    shortDescription: "Scenic drone and GoPro footage compiled into a serene travel montage. Edited with DaVinci Resolve.",
-    fullDescription: "A calming montage of a nature retreat, featuring stunning drone aerials and immersive GoPro shots. Edited in DaVinci Resolve, with a focus on smooth transitions, cinematic color grading, and evocative sound design to highlight the tranquility of the location.",
-    client: "Travel Vlogger (Collaboration)",
-    challenge: "Combining diverse footage types (drone, GoPro) into a cohesive and emotionally resonant video.",
-    solution: "Leveraged DaVinci Resolve for advanced color grading, clip stabilization, and audio mixing. Created a narrative flow that guides the viewer through the experience.",
-    results: ["Effectively captured the serene beauty of the location.", "Showcases skills in DaVinci Resolve and handling different video formats.", "Enhanced the client's vlog series with a professional touch."],
-    youtubeVideoId: "rokGy0huYEA", // Example: Relaxing Music video ID, REPLACE THIS
-    liveLink: "https://www.youtube.com/watch?v=rokGy0huYEA",
-    tags: ["Video Editing", "DaVinci Resolve", "Drone Footage", "GoPro", "Color Grading", "Sound Design"],
-    delay: "0.4s",
   }
 ];
 
