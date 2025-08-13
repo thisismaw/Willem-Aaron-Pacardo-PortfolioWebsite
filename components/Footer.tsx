@@ -51,8 +51,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-slate-700 pt-8 sm:pt-10 text-center">
-          <p className="text-xs sm:text-sm mb-2">&copy; {currentYear} AssistbyAaron. All Rights Reserved.</p>
-          <p className="text-xs text-slate-400"><Link href="/privacy-policy" className="footer-link hover:text-cyan-400">Privacy Policy</Link> | <Link href="/terms-of-service" className="footer-link hover:text-cyan-400">Terms of Service</Link></p>
+          <p className="text-xs sm:text-sm mb-2">&copy; {currentYear} Digital Desk by Willem. All Rights Reserved.</p>
           <p className="text-xs text-slate-400 mt-2"> Made with <HeartIcon /> using Next.js, Tailwind CSS & Hosted on Vercel</p>
         </div>
       </div>
