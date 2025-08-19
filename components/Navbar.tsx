@@ -91,7 +91,7 @@ const Navbar = () => {
         <Link 
           href="/" 
           onClick={() => handleAnchorLinkClick('home', '/#home')} 
-          className="font-logo-rocksalt text-2xl sm:text-3xl text-cyan-700 hover:text-cyan-800 transition-colors"
+          className="text-2xl sm:text-3xl text-cyan-700 hover:text-cyan-800 transition-colors"
         > 
           Digital Desk by Willem
         </Link>
