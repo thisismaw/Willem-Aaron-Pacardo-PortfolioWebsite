@@ -16,6 +16,7 @@ export interface PortfolioItem {
    youtubeVideoId?: string; // New: For embedding YouTube videos
   tags?: string[];          
   delay?: string; 
+  linkText?: string;
 }
 
 const portfolioData: PortfolioItem[] = [
@@ -61,6 +62,8 @@ const portfolioData: PortfolioItem[] = [
     "/images/portfolio/cryptographics/btc5.webp",
     "/images/portfolio/cryptographics/btc3.webp"
   ],
+  liveLink: "https://www.facebook.com/itsthecryptospace",
+  linkText: "Visit Facebook Page",
   tags: ["Canva", "Content Management", "Crypto", "Facebook Marketing", "Graphic Design"],
   delay: "0.1s"
   },
@@ -100,6 +103,26 @@ const portfolioData: PortfolioItem[] = [
   liveLink: "https://www.youtube.com/@mawmawmawi", // Replace with your actual channel link if available
   tags: ["Video Editing", "CapCut", "Travel Vlog", "YouTube Shorts", "Simple Edits"],
   delay: "0.3s"
+  },
+  {
+    id: 5,
+    slug: "apex-fitness-website",
+    title: "Apex Fitness Performance",
+    category: "Web Development & Design",
+    imageUrl: "/images/thumbnail/apex-fitness-thumbnail.png",
+    shortDescription: "A high-performance, brutalist landing page for an elite fitness brand. Built for speed and conversion.",
+    fullDescription: "Apex Form is a premium fitness landing page designed to showcase a modern, 'brutalist' aesthetic. The project focuses on high-impact typography, a bold dark-mode color palette, and a fully responsive layout. It features interactive pricing tiers, integrated CDN-based iconography, and optimized performance to ensure a seamless experience for data-driven athletes.",
+    client: "Concept Project (Fitness Industry)",
+    challenge: "Designing a UI that feels intense and professional without sacrificing readability or user flow, while maintaining a lightweight code footprint.",
+    solution: "Implemented a utility-first CSS approach using Tailwind. I utilized a high-contrast color scheme (#CCFF00 and #121212) to guide the user's eye toward Call-to-Action (CTA) buttons and used a strategic Z-pattern layout to improve content digestibility.",
+    results: [
+        "Fully responsive design that works across mobile, tablet, and desktop.",
+        "Clean, professional code structure using HTML5 and modern CSS techniques.",
+        "Highly polished visual identity that demonstrates a mastery of modern UI trends."
+    ],
+    tags: ["HTML5", "Tailwind CSS", "Responsive Design", "UI/UX", "Lucide Icons"],
+    liveLink: "https://effervescent-valkyrie-a14327.netlify.app/",
+    delay: "0.2s",
   }
 ];
 

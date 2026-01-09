@@ -44,8 +44,7 @@ const ServicesSection = ({ baseDelay = "0s" }: ServicesSectionProps) => {
                   {service.details.map((detail, index) => ( <li key={index}><span className="text-cyan-600 mr-1">✅</span>{detail}</li> ))}
                 </ul>
               </div>
-              <div> 
-                <p className="text-center text-lg sm:text-xl font-semibold text-cyan-700 mb-5">{service.rate}</p>
+              <div>           
                 <button onClick={() => openModal(service.title)} className="block w-full text-center mt-auto text-white bg-cyan-700 hover:bg-cyan-800 font-semibold py-3 px-4 rounded-lg transition duration-300 text-sm sm:text-base">
                   {service.buttonText}
                 </button>

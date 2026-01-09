@@ -166,14 +166,14 @@ const PortfolioDetailModal = ({ isOpen, onClose, item }: PortfolioDetailModalPro
             </Link>
           )}
           {/* General Live Link (if not a YouTube video with a specific button already) */}
-          {item.liveLink && item.liveLink !== "#" && !(item.youtubeVideoId && item.liveLink.includes("youtube.com")) && (
+          {item.liveLink && item.liveLink !== "#" && (
             <Link
               href={item.liveLink}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center bg-slate-600 hover:bg-slate-700 text-white font-medium py-2.5 px-5 rounded-md transition-colors duration-300 text-sm"
             >
-              View Live Project
+              {item.linkText || "View Live Project"}
             </Link>
           )}
         </div>
