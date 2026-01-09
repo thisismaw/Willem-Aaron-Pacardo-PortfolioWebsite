@@ -44,7 +44,7 @@ const portfolioData: PortfolioItem[] = [
   id: 2,
   slug: "crypto-fb-page-management",
   title: "Crypto Facebook Page Management",
-  category: "Graphic Design",
+  category: "Social Media Management",
   imageUrl: "/images/portfolio/cryptographics/btc4.webp", // Cover image for the series
   shortDescription: "Managed and designed content for a crypto-focused Facebook page.",
   fullDescription: "I made and managed a crypto informative Facebook page. I edited content and created graphics tailored to the audience. The goal was to maintain an active and visually consistent page that simplified complex crypto concepts for everyday users.",
@@ -122,6 +122,46 @@ const portfolioData: PortfolioItem[] = [
     ],
     tags: ["HTML5", "Tailwind CSS", "Responsive Design", "UI/UX", "Lucide Icons"],
     liveLink: "https://effervescent-valkyrie-a14327.netlify.app/",
+    delay: "0.2s",
+  },
+  {
+    id: 6,
+    slug: "lumiere-interiors-luxury-web",
+    title: "Lumière Interiors Boutique Site",
+    category: "Web Development & Design",
+    imageUrl: "/images/thumbnail/lumiere-thumbnail.png",
+    shortDescription: "A minimalist, high-end portfolio for an architectural interior design studio.",
+    fullDescription: "Designed and developed a luxury digital experience for Lumière Interiors. The focus was on elevated aesthetics, utilizing white space, Serif typography, and asymmetric layouts to reflect the client’s high-ticket service offering.",
+    client: "Lumière Interiors (Concept Project)",
+    challenge: "The client needed a digital presence that matched their premium price point. A standard template felt too generic for their bespoke design philosophy.",
+    solution: "I created a custom 'Overlap' UI where typography and imagery intersect. This broken-grid layout gives the site a custom, high-fashion feel. Using an Alabaster and Charcoal palette, I ensured the focus remained on the high-resolution architectural photography.",
+    results: [
+        "Elevated brand perception through minimalist UI design.",
+        "Increased focus on high-quality visual assets using lazy-loading CDN images.",
+        "Created a mobile-responsive layout that maintains luxury spacing on smaller screens."
+    ],
+    tags: ["UI Design", "Visual Hierarchy", "Tailwind CSS", "Architecture Branding"],
+    liveLink: "https://clever-swan-3ba385.netlify.app/",
+    delay: "0.2s",
+  },
+  {
+    id: 7,
+    slug: "nexus-ai-saas",
+    title: "Nexus AI Platform",
+    category: "Web Development & Design",
+    imageUrl: "/images/thumbnail/nexus-thumbnail.png",
+    shortDescription: "A futuristic SaaS landing page featuring glassmorphism and modern gradient UI.",
+    fullDescription: "Nexus AI is a concept for a decentralized cybersecurity startup. The design leverages 'Glassmorphism'—using backdrop-blur and semi-transparent layers—to create a high-tech, depth-heavy aesthetic. This project showcases my ability to build clean, modern product landing pages with a focus on conversion and feature-selling.",
+    client: "Nexus Labs",
+    challenge: "Creating a sense of trust and cutting-edge technology without overwhelming the user with dark colors.",
+    solution: "I used a radial-gradient background to simulate depth and 'Glass' cards to create a clear visual hierarchy. By utilizing Lucide icons and the 'Plus Jakarta Sans' typeface, I achieved a high-end tech-startup look.",
+    results: [
+        "Advanced use of CSS Backdrop-Filter and Gradients.",
+        "Created a mobile-first responsive feature grid.",
+        "Demonstrated understanding of SaaS branding and UI/UX patterns."
+    ],
+    tags: ["SaaS Design", "CSS Gradients", "Glassmorphism", "Product UI"],
+    liveLink: "statuesque-smakager-518483.netlify.app",
     delay: "0.2s",
   }
 ];
