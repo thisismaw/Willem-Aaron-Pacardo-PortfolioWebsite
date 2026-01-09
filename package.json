@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "next": "^15.3.3",
+    "next": "15.3.8",
     "postcss": "^8.5.3",
     "prismjs": "^1.30.0",
     "react": "^19.1.0",
