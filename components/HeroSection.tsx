@@ -1,36 +1,92 @@
 "use client"; 
 import React, { useEffect, useRef, useState } from 'react'; 
 import Image from 'next/image'; 
-interface HeroSectionProps { baseDelay?: string; }
-const HeroSection = ({ baseDelay = "0s" }: HeroSectionProps) => {
+
+const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null); 
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const currentRef = sectionRef.current; 
-    const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { setIsVisible(true); if (currentRef) observer.unobserve(currentRef); } }); }, { threshold: 0.1 } );
+    const observer = new IntersectionObserver((entries) => { 
+      entries.forEach((entry) => { 
+        if (entry.isIntersecting) { 
+          setIsVisible(true); 
+          if (currentRef) observer.unobserve(currentRef); 
+        } 
+      }); 
+    }, { threshold: 0.1 });
+    
     if (currentRef) { observer.observe(currentRef); }
     return () => { if (currentRef) { observer.unobserve(currentRef); } };
   }, []); 
+
   return (
-    <header id="home" ref={sectionRef} className={`bg-white text-slate-900 min-h-[calc(100vh-68px)] flex items-center justify-center py-12 sm:py-16 px-4 overflow-hidden ${isVisible ? 'is-visible' : ''} fade-in-section`} style={{ transitionDelay: isVisible ? baseDelay : '0s' }}>
+    <header 
+      id="home" 
+      ref={sectionRef} 
+      className={`bg-white text-slate-900 min-h-[90vh] flex items-center justify-center py-20 px-4 overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+    >
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-12 lg:gap-16">
-          <div className="md:w-1/2 lg:w-3/5 text-center md:text-left order-2 md:order-1">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight tracking-tight text-slate-800"> Helping Busy Entrepreneurs Stay Organized <span className="block sm:inline text-cyan-700">& Grow Their Business</span> </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 font-normal text-slate-600 max-w-xl mx-auto md:mx-0"> I help consultants, coaches, and e-commerce brands streamline their operations, manage tasks, and focus on what matters most — growing their revenue. </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-              <a href="#services" onClick={(e) => { e.preventDefault(); document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto inline-block bg-cyan-700 text-white hover:bg-cyan-800 font-semibold py-3 px-6 sm:py-3 sm:px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 text-base sm:text-lg" > Discover My Services </a>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto inline-block bg-transparent border-2 border-cyan-700 text-cyan-700 hover:bg-cyan-700 hover:text-white font-semibold py-3 px-6 sm:py-3 sm:px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 text-base sm:text-lg" > Let&apos;s Work Together </a>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
+          
+          {/* TEXT CONTENT */}
+          <div className="md:w-3/5 text-center md:text-left order-2 md:order-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+                <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
+                Available for New Projects
+            </div>
+            
+            <h1 className="text-5xl lg:text-8xl font-black mb-6 leading-[0.95] tracking-tighter text-slate-900">
+              AssistBy<span className="text-indigo-600">Aaron.</span>
+            </h1>
+            
+            <h2 className="text-2xl md:text-3xl font-medium text-slate-400 mb-8 tracking-tight">
+              Engineering <span className="text-slate-900">Digital Solutions</span> & Operations.
+            </h2>
+            
+            <p className="text-lg text-slate-500 max-w-xl mb-10 leading-relaxed">
+              I help founders and studios scale by bridging the gap between custom web development and high-level business operations. 
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a 
+                href="#portfolio" 
+                className="btn-primary px-10 py-4 rounded-xl font-bold text-center transition-all"
+              >
+                View My Work
+              </a>
+              <a 
+                href="#contact" 
+                className="border-2 border-slate-200 text-slate-900 px-10 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all text-center"
+              >
+                Let's Chat
+              </a>
             </div>
           </div>
-          <div className="md:w-1/2 lg:w-2/5 order-1 md:order-2 flex justify-center md:justify-end">
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-xl"> 
-              <Image src="/images/willem-hero.png" alt="Willem Pacardo - Digital Operations Expert" fill sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, (max-width: 1024px) 320px, 384px" className="object-cover" priority onError={(e) => { const target = e.target as HTMLImageElement; target.onerror = null; console.error("Hero image failed to load:", target.src); target.parentElement?.classList.add('bg-slate-200'); target.style.display = 'none'; }} />
+
+          {/* IMAGE CONTENT */}
+          <div className="md:w-2/5 order-1 md:order-2">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
+              {/* Subtle indigo glow behind the image */}
+              <div className="absolute -inset-4 bg-indigo-100 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+              
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-4 border-white shadow-2xl transition-transform hover:scale-[1.02] duration-500">
+                <Image 
+                  src="/images/willem-hero.png" 
+                  alt="Aaron - Digital Solutions Expert" 
+                  fill 
+                  className="object-cover" 
+                  priority 
+                />
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </header>
   );
 };
+
 export default HeroSection;

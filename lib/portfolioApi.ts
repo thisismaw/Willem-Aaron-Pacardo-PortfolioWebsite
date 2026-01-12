@@ -21,7 +21,67 @@ export interface PortfolioItem {
 
 const portfolioData: PortfolioItem[] = [
   {
-  id: 1,
+    id: 1,
+    slug: "nexus-ai-saas",
+    title: "Nexus AI Platform",
+    category: "Web Development & Design",
+    imageUrl: "/images/thumbnail/nexus-thumbnail.png",
+    shortDescription: "A futuristic SaaS landing page featuring glassmorphism and modern gradient UI.",
+    fullDescription: "Nexus AI is a concept for a decentralized cybersecurity startup. The design leverages 'Glassmorphism'—using backdrop-blur and semi-transparent layers—to create a high-tech, depth-heavy aesthetic. This project showcases my ability to build clean, modern product landing pages with a focus on conversion and feature-selling.",
+    client: "Nexus Labs",
+    challenge: "Creating a sense of trust and cutting-edge technology without overwhelming the user with dark colors.",
+    solution: "I used a radial-gradient background to simulate depth and 'Glass' cards to create a clear visual hierarchy. By utilizing Lucide icons and the 'Plus Jakarta Sans' typeface, I achieved a high-end tech-startup look.",
+    results: [
+        "Advanced use of CSS Backdrop-Filter and Gradients.",
+        "Created a mobile-first responsive feature grid.",
+        "Demonstrated understanding of SaaS branding and UI/UX patterns."
+    ],
+    tags: ["SaaS Design", "CSS Gradients", "Glassmorphism", "Product UI"],
+    liveLink: "statuesque-smakager-518483.netlify.app",
+    delay: "0.2s",
+  },
+    {
+    id: 2,
+    slug: "lumiere-interiors-luxury-web",
+    title: "Lumière Interiors Boutique Site",
+    category: "Web Development & Design",
+    imageUrl: "/images/thumbnail/lumiere-thumbnail.png",
+    shortDescription: "A minimalist, high-end portfolio for an architectural interior design studio.",
+    fullDescription: "Designed and developed a luxury digital experience for Lumière Interiors. The focus was on elevated aesthetics, utilizing white space, Serif typography, and asymmetric layouts to reflect the client’s high-ticket service offering.",
+    client: "Lumière Interiors (Concept Project)",
+    challenge: "The client needed a digital presence that matched their premium price point. A standard template felt too generic for their bespoke design philosophy.",
+    solution: "I created a custom 'Overlap' UI where typography and imagery intersect. This broken-grid layout gives the site a custom, high-fashion feel. Using an Alabaster and Charcoal palette, I ensured the focus remained on the high-resolution architectural photography.",
+    results: [
+        "Elevated brand perception through minimalist UI design.",
+        "Increased focus on high-quality visual assets using lazy-loading CDN images.",
+        "Created a mobile-responsive layout that maintains luxury spacing on smaller screens."
+    ],
+    tags: ["UI Design", "Visual Hierarchy", "Tailwind CSS", "Architecture Branding"],
+    liveLink: "https://clever-swan-3ba385.netlify.app/",
+    delay: "0.2s",
+  },
+    {
+    id: 3,
+    slug: "apex-fitness-website",
+    title: "Apex Fitness Performance",
+    category: "Web Development & Design",
+    imageUrl: "/images/thumbnail/apex-fitness-thumbnail.png",
+    shortDescription: "A high-performance, brutalist landing page for an elite fitness brand. Built for speed and conversion.",
+    fullDescription: "Apex Form is a premium fitness landing page designed to showcase a modern, 'brutalist' aesthetic. The project focuses on high-impact typography, a bold dark-mode color palette, and a fully responsive layout. It features interactive pricing tiers, integrated CDN-based iconography, and optimized performance to ensure a seamless experience for data-driven athletes.",
+    client: "Concept Project (Fitness Industry)",
+    challenge: "Designing a UI that feels intense and professional without sacrificing readability or user flow, while maintaining a lightweight code footprint.",
+    solution: "Implemented a utility-first CSS approach using Tailwind. I utilized a high-contrast color scheme (#CCFF00 and #121212) to guide the user's eye toward Call-to-Action (CTA) buttons and used a strategic Z-pattern layout to improve content digestibility.",
+    results: [
+        "Fully responsive design that works across mobile, tablet, and desktop.",
+        "Clean, professional code structure using HTML5 and modern CSS techniques.",
+        "Highly polished visual identity that demonstrates a mastery of modern UI trends."
+    ],
+    tags: ["HTML5", "Tailwind CSS", "Responsive Design", "UI/UX", "Lucide Icons"],
+    liveLink: "https://effervescent-valkyrie-a14327.netlify.app/",
+    delay: "0.2s",
+  },
+  {
+  id: 4,
   slug: "matcha-haven-website",
   title: "Matcha Haven Website Design",
   category: "Web Design",
@@ -41,7 +101,7 @@ const portfolioData: PortfolioItem[] = [
   delay: "0.4s"
 },
   {
-  id: 2,
+  id: 5,
   slug: "crypto-fb-page-management",
   title: "Crypto Facebook Page Management",
   category: "Social Media Management",
@@ -68,7 +128,7 @@ const portfolioData: PortfolioItem[] = [
   delay: "0.1s"
   },
   {
-    id: 3,
+    id: 6,
     slug: "travel-itinerary-planning",
     title: "An Arctic Tapestry",
     category: "Document Creation",
@@ -84,7 +144,7 @@ const portfolioData: PortfolioItem[] = [
     delay: "0.2s",
   },
   {
-  id: 4,
+  id: 7,
   slug: "mawi-travels-video-editing",
   title: "Mawi Travels - YouTube Video Edits",
   category: "Video Editing / Travel",
@@ -103,66 +163,6 @@ const portfolioData: PortfolioItem[] = [
   liveLink: "https://www.youtube.com/@mawmawmawi", // Replace with your actual channel link if available
   tags: ["Video Editing", "CapCut", "Travel Vlog", "YouTube Shorts", "Simple Edits"],
   delay: "0.3s"
-  },
-  {
-    id: 5,
-    slug: "apex-fitness-website",
-    title: "Apex Fitness Performance",
-    category: "Web Development & Design",
-    imageUrl: "/images/thumbnail/apex-fitness-thumbnail.png",
-    shortDescription: "A high-performance, brutalist landing page for an elite fitness brand. Built for speed and conversion.",
-    fullDescription: "Apex Form is a premium fitness landing page designed to showcase a modern, 'brutalist' aesthetic. The project focuses on high-impact typography, a bold dark-mode color palette, and a fully responsive layout. It features interactive pricing tiers, integrated CDN-based iconography, and optimized performance to ensure a seamless experience for data-driven athletes.",
-    client: "Concept Project (Fitness Industry)",
-    challenge: "Designing a UI that feels intense and professional without sacrificing readability or user flow, while maintaining a lightweight code footprint.",
-    solution: "Implemented a utility-first CSS approach using Tailwind. I utilized a high-contrast color scheme (#CCFF00 and #121212) to guide the user's eye toward Call-to-Action (CTA) buttons and used a strategic Z-pattern layout to improve content digestibility.",
-    results: [
-        "Fully responsive design that works across mobile, tablet, and desktop.",
-        "Clean, professional code structure using HTML5 and modern CSS techniques.",
-        "Highly polished visual identity that demonstrates a mastery of modern UI trends."
-    ],
-    tags: ["HTML5", "Tailwind CSS", "Responsive Design", "UI/UX", "Lucide Icons"],
-    liveLink: "https://effervescent-valkyrie-a14327.netlify.app/",
-    delay: "0.2s",
-  },
-  {
-    id: 6,
-    slug: "lumiere-interiors-luxury-web",
-    title: "Lumière Interiors Boutique Site",
-    category: "Web Development & Design",
-    imageUrl: "/images/thumbnail/lumiere-thumbnail.png",
-    shortDescription: "A minimalist, high-end portfolio for an architectural interior design studio.",
-    fullDescription: "Designed and developed a luxury digital experience for Lumière Interiors. The focus was on elevated aesthetics, utilizing white space, Serif typography, and asymmetric layouts to reflect the client’s high-ticket service offering.",
-    client: "Lumière Interiors (Concept Project)",
-    challenge: "The client needed a digital presence that matched their premium price point. A standard template felt too generic for their bespoke design philosophy.",
-    solution: "I created a custom 'Overlap' UI where typography and imagery intersect. This broken-grid layout gives the site a custom, high-fashion feel. Using an Alabaster and Charcoal palette, I ensured the focus remained on the high-resolution architectural photography.",
-    results: [
-        "Elevated brand perception through minimalist UI design.",
-        "Increased focus on high-quality visual assets using lazy-loading CDN images.",
-        "Created a mobile-responsive layout that maintains luxury spacing on smaller screens."
-    ],
-    tags: ["UI Design", "Visual Hierarchy", "Tailwind CSS", "Architecture Branding"],
-    liveLink: "https://clever-swan-3ba385.netlify.app/",
-    delay: "0.2s",
-  },
-  {
-    id: 7,
-    slug: "nexus-ai-saas",
-    title: "Nexus AI Platform",
-    category: "Web Development & Design",
-    imageUrl: "/images/thumbnail/nexus-thumbnail.png",
-    shortDescription: "A futuristic SaaS landing page featuring glassmorphism and modern gradient UI.",
-    fullDescription: "Nexus AI is a concept for a decentralized cybersecurity startup. The design leverages 'Glassmorphism'—using backdrop-blur and semi-transparent layers—to create a high-tech, depth-heavy aesthetic. This project showcases my ability to build clean, modern product landing pages with a focus on conversion and feature-selling.",
-    client: "Nexus Labs",
-    challenge: "Creating a sense of trust and cutting-edge technology without overwhelming the user with dark colors.",
-    solution: "I used a radial-gradient background to simulate depth and 'Glass' cards to create a clear visual hierarchy. By utilizing Lucide icons and the 'Plus Jakarta Sans' typeface, I achieved a high-end tech-startup look.",
-    results: [
-        "Advanced use of CSS Backdrop-Filter and Gradients.",
-        "Created a mobile-first responsive feature grid.",
-        "Demonstrated understanding of SaaS branding and UI/UX patterns."
-    ],
-    tags: ["SaaS Design", "CSS Gradients", "Glassmorphism", "Product UI"],
-    liveLink: "statuesque-smakager-518483.netlify.app",
-    delay: "0.2s",
   }
 ];
 

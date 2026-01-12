@@ -2,40 +2,31 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar'; 
 import Footer from '@/components/Footer'; 
 import './globals.css'; 
-import { Inter, Rock_Salt } from 'next/font/google'; // Import next/font
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 
-// Configure Inter font for the body
 const inter = Inter({ 
   subsets: ['latin'],
-  variable: '--font-inter', // CSS variable name
+  variable: '--font-inter',
   display: 'swap',
 });
 
-// Configure Rock Salt font for the logo
-const rockSalt = Rock_Salt({
-  weight: ['400'], // Rock Salt typically only has a 400 weight
+// New Bold Branding Font
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-rock-salt', // CSS variable name
+  variable: '--font-jakarta',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'AssistbyAaron - Freelance Digital Expert', 
-  description: 'Freelance services in video editing, social media, web development, and e-commerce.',
+  title: 'AssistByAaron - Digital Growth & Development', 
+  description: 'Freelance services in web development, operations, and creative content.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+// Inside layout.tsx
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // Apply font variables to the html tag
-    <html lang="en" className={`${inter.variable} ${rockSalt.variable}`}>
-      <head>
-        {/* Google Font <link> tags are no longer needed here if using next/font */}
-      </head>
-      <body className="bg-slate-50 text-slate-800 antialiased font-sans"> 
+    <html lang="en" className={`${inter.variable} ${jakarta.variable} scroll-smooth`}>
+      <body className="bg-white text-slate-900 antialiased font-sans"> 
         <Navbar />
         <main>{children}</main> 
         <Footer />
