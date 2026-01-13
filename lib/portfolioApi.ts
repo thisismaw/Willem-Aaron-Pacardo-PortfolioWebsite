@@ -81,7 +81,28 @@ const portfolioData: PortfolioItem[] = [
     delay: "0.2s",
   },
   {
-  id: 4,
+    id: 4,
+  slug: "apex-brand-studio",
+  title: "Apex Brand Studio",
+  category: "Web Application / Product Tool",
+  imageUrl: "/images/portfolio/apexbrand/apexbrand.png",
+  shortDescription: "A reactive design system lab and brand guideline generator built with advanced color science.",
+  fullDescription: "I developed Apex Brand Studio to bridge the gap between creative intuition and mathematical design principles. Unlike static design tools, this application acts as a living brand guideline, allowing users to define their brand DNA—colors, typography, and geometry—while receiving real-time feedback. The project features a custom 'Design Science Engine' that calculates accessibility scores and offers automated contrast repairs to ensure every brand created is WCAG compliant from the start.",
+  client: "Personal Project",
+  challenge: "Non-designers often struggle to maintain visual consistency and accessibility when creating brand identities from scratch.",
+  solution: "I built a real-time React application that uses WCAG-standard contrast algorithms and reactive UI components. I implemented relative luminance calculations for accessibility auditing and a 'Magic Wand' feature that uses an iterative mathematical search to find the nearest accessible version of a brand color. The app also features dynamic Google Fonts orchestration and persistent local storage to maintain the user's design session across refreshes.",
+  results: [
+    "Implemented a Color Science Engine for real-time accessibility auditing.",
+    "Engineered a Smart Contrast Repair tool using iterative mathematical search.",
+    "Developed a fully responsive, mobile-optimized design-to-code workflow.",
+    "Integrated dynamic CSS injection for live typographic orchestration."
+  ],
+  liveLink: "https://brand-identity-hub.vercel.app/", 
+  tags: ["React", "TypeScript", "Tailwind CSS", "Color Theory", "UX Engineering", "Web Accessibility", "Vercel"],
+  delay: "0.4s"
+},
+  {
+  id: 5,
   slug: "matcha-haven-website",
   title: "Matcha Haven Website Design",
   category: "Web Design",
@@ -101,7 +122,7 @@ const portfolioData: PortfolioItem[] = [
   delay: "0.4s"
 },
   {
-  id: 5,
+  id: 6,
   slug: "crypto-fb-page-management",
   title: "Crypto Facebook Page Management",
   category: "Social Media Management",
@@ -128,7 +149,7 @@ const portfolioData: PortfolioItem[] = [
   delay: "0.1s"
   },
   {
-    id: 6,
+    id: 7,
     slug: "travel-itinerary-planning",
     title: "An Arctic Tapestry",
     category: "Document Creation",
@@ -144,7 +165,7 @@ const portfolioData: PortfolioItem[] = [
     delay: "0.2s",
   },
   {
-  id: 7,
+  id: 8,
   slug: "mawi-travels-video-editing",
   title: "Mawi Travels - YouTube Video Edits",
   category: "Video Editing / Travel",
