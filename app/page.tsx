@@ -10,6 +10,7 @@ export default function HomePage() {
   // Logic for fetching latestPosts is removed
   return (
     <>
+    
       <HeroSection /> 
       <ServicesSection baseDelay="0.2s" /> 
       <ToolsSection  /> 

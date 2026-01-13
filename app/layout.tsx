@@ -20,14 +20,17 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata = {
   title: 'AssistByAaron | Digital Operations & Web Solutions',
   description: 'Specializing in automation, WordPress development, and operational support to scale your business.',
+  verification: {
+    google: '6gmSbLEpgajK1hmMmR8Z1VfEPUNLAwwDsnDfPzvis_k',
+  },
   openGraph: {
     title: 'AssistByAaron',
     description: 'Streamlined digital operations and web development.',
-    url: 'https://assistbyaaron.com',
+    url: 'https://willem-aaron-pacardo-portfolio-webs.vercel.app/portfolio',
     siteName: 'AssistByAaron',
     images: [
       {
-        url: '/og-image.png', // Add a nice preview image in your public folder
+        url: '/og-image.png',
         width: 1200,
         height: 630,
       },
