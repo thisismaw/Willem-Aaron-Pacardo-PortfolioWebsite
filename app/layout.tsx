@@ -17,10 +17,25 @@ const jakarta = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: 'AssistByAaron - Digital Growth & Development', 
-  description: 'Freelance services in web development, operations, and creative content.',
-};
+export const metadata = {
+  title: 'AssistByAaron | Digital Operations & Web Solutions',
+  description: 'Specializing in automation, WordPress development, and operational support to scale your business.',
+  openGraph: {
+    title: 'AssistByAaron',
+    description: 'Streamlined digital operations and web development.',
+    url: 'https://assistbyaaron.com',
+    siteName: 'AssistByAaron',
+    images: [
+      {
+        url: '/og-image.png', // Add a nice preview image in your public folder
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+}
 
 // Inside layout.tsx
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -34,3 +49,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
