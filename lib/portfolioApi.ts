@@ -85,7 +85,7 @@ const portfolioData: PortfolioItem[] = [
   slug: "apex-brand-studio",
   title: "Apex Brand Studio",
   category: "Web Application / Product Tool",
-  imageUrl: "/images/portfolio/apexbrand/apexbrand.png",
+  imageUrl: "/images/thumbnail/apex-brand-studio.png",
   shortDescription: "A reactive design system lab and brand guideline generator built with advanced color science.",
   fullDescription: "I developed Apex Brand Studio to bridge the gap between creative intuition and mathematical design principles. Unlike static design tools, this application acts as a living brand guideline, allowing users to define their brand DNA—colors, typography, and geometry—while receiving real-time feedback. The project features a custom 'Design Science Engine' that calculates accessibility scores and offers automated contrast repairs to ensure every brand created is WCAG compliant from the start.",
   client: "Personal Project",
