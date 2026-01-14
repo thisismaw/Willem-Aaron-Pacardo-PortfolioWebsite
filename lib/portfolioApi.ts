@@ -103,26 +103,6 @@ const portfolioData: PortfolioItem[] = [
 },
   {
   id: 5,
-  slug: "matcha-haven-website",
-  title: "Matcha Haven Website Design",
-  category: "Web Design",
-  imageUrl: "/images/portfolio/matchahaven/matchahaven.png",
-  shortDescription: "A mock e-commerce website for a matcha store, designed in Figma and built with HTML/CSS.",
-  fullDescription: "I created a mock e-commerce website for a  matcha brand, starting with a UI design in Figma. The goal was to design a clean, modern storefront that emphasizes product visuals and a calming aesthetic. After finalizing the layout in Figma, I translated the design into a fully functional static website using HTML and CSS. The project was hosted on GitHub Pages as a demonstration of my design-to-code workflow.",
-  client: "Personal Project",
-  challenge: "Design and develop a cohesive and elegant matcha storefront using only front-end tools.",
-  solution: "Crafted a UI layout in Figma focusing on color harmony, spacing, and simplicity. Then coded the site from scratch using semantic HTML and CSS. Used Flexbox and media queries for responsive behavior. All visuals and layout components were custom-made based on the original Figma design.",
-  results: [
-    "Demonstrated ability to take a Figma design from concept to code.",
-    "Created a clean and responsive product-focused site.",
-    "Successfully hosted the project live on GitHub Pages."
-  ],
-  liveLink: "https://thisismaw.github.io/Matcha-Haven/", 
-  tags: ["HTML", "CSS", "Figma", "Web Design", "UI Design", "Responsive Design", "GitHub Pages"],
-  delay: "0.4s"
-},
-  {
-  id: 6,
   slug: "crypto-fb-page-management",
   title: "Crypto Facebook Page Management",
   category: "Social Media Management",
@@ -149,7 +129,7 @@ const portfolioData: PortfolioItem[] = [
   delay: "0.1s"
   },
   {
-    id: 7,
+    id: 6,
     slug: "travel-itinerary-planning",
     title: "An Arctic Tapestry",
     category: "Document Creation",
@@ -165,7 +145,7 @@ const portfolioData: PortfolioItem[] = [
     delay: "0.2s",
   },
   {
-  id: 8,
+  id: 7,
   slug: "mawi-travels-video-editing",
   title: "Mawi Travels - YouTube Video Edits",
   category: "Video Editing / Travel",
