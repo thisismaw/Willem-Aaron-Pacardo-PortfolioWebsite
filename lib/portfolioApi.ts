@@ -104,7 +104,7 @@ const portfolioData: PortfolioItem[] = [
   {
   id: 5,
   slug: "crypto-fb-page-management",
-  title: "Crypto Facebook Page Management",
+  title: "Crypto Facebook Page Management (The Crypto Space)",
   category: "Social Media Management",
   imageUrl: "/images/portfolio/cryptographics/btc4.webp", // Cover image for the series
   shortDescription: "Managed and designed content for a crypto-focused Facebook page.",
